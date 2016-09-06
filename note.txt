@@ -1,0 +1,11 @@
+npm install semantic-ui
+npm install vue
+npm install slick-carousel
+npm install vue-resource
+
+
+composer require paquettg/php-html-parser
+composer require intervention/image
+
+cd public
+ln -s ../storage/app/public storage
