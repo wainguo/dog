@@ -40,6 +40,7 @@
             transition: 'fade in',
             duration: 500
         });
+
         // show dropdown on hover
         $('.menu .ui.dropdown').dropdown({
             on: 'hover'

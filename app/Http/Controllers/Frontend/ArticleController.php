@@ -79,6 +79,33 @@ class ArticleController extends Controller
         ]);
     }
 
+    public function getBaoliao($id = null)
+    {
+        if(!empty($id)) {
+            $article = Article::find($id);
+            if($article->user_id != Auth::user()->id){
+                return view('errors.errorpage', ['error_message' => '您没有权限编辑该文章']);
+            }
+        }
+        if(empty($article)) {
+            $article = new Article();
+        }
+
+        $channels = Channel::all();
+        $categories = Category::root()->get();
+        $tags = Tag::all();
+        $malls = Mall::all();
+
+//      异常处理,如果没有怎么?
+        return view('frontend.article.baoliao', [
+            'article' => $article,
+            'channels' => $channels,
+            'categories' => $categories,
+            'tags' => $tags,
+            'malls' => $malls
+        ]);
+    }
+
     //  编辑文章的保存
     public function postSaveEdit(Request $request)
     {

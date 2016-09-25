@@ -101,6 +101,7 @@ class FrontendController extends Controller
     private function gotoChannelOfName($channelName)
     {
         $channel = Channel::ofName($channelName)->first();
+
         $articles = array();
         if(!empty($channel)){
             $articles = Article::ofChannel($channel->id)
@@ -109,9 +110,15 @@ class FrontendController extends Controller
                 ->paginate($this->perPage);
         }
 
+        $popularArticles = Article::status('publish')
+            ->orderBy('view_count', 'desc')
+            ->take(10)
+            ->get();
+
         return view('frontend.channel', [
             'channel' => $channel,
-            'articles' => $articles
+            'articles' => $articles,
+            'popularArticles' => $popularArticles
         ]);
     }
 

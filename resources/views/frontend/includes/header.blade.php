@@ -47,10 +47,10 @@
         <div class="ui right floated item">
             <div class="right floated">
                 <a class="ui circular twitter icon basic button">
-                    <i class="twitter icon"></i>
+                    <i class="weibo red icon"></i>
                 </a>
                 <button class="ui circular google plus icon button">
-                    <i class="google plus icon"></i>
+                    <i class="wechat icon"></i>
                 </button>
             </div>
         </div>

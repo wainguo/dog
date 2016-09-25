@@ -1,46 +1,30 @@
-@extends('frontend.layouts.master')
+@extends('frontend.layouts.one')
 
 @section('content')
-    <div class="row">
+    <div class="container">
+        <div class="ui breadcrumb">
+            <div class="section"> 当前位置：</div>
+            <a class="section" href="{{url('')}}">首页</a>
+            <i class="right angle icon divider"></i>
+            <div class="section">{{ trans('labels.frontend.user.profile.update_information') }}</div>
+        </div>
+        <div class="ui divider"></div>
+        {{ Form::model($user, ['route' => 'frontend.user.profile.update', 'class' => 'ui form', 'method' => 'PATCH']) }}
+        <div class="inline field">
+            {{ Form::label('name', trans('validation.attributes.frontend.name'), ['class' => '']) }}
+            {{ Form::input('text', 'name', null, ['class' => '', 'placeholder' => trans('validation.attributes.frontend.name')]) }}
+        </div>
 
-        <div class="col-md-10 col-md-offset-1">
+        @if ($user->canChangeEmail())
+            <div class="inline field">
+                {{ Form::label('email', trans('validation.attributes.frontend.email'), ['class' => '']) }}
+                {{ Form::input('email', 'email', null, ['placeholder' => trans('validation.attributes.frontend.email')]) }}
+            </div>
+        @endif
 
-            <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('labels.frontend.user.profile.update_information') }}</div>
+        {{ Form::submit(trans('labels.general.buttons.save'), ['class' => 'ui red button']) }}
 
-                <div class="panel-body">
+        {{ Form::close() }}
 
-                    {{ Form::model($user, ['route' => 'frontend.user.profile.update', 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
-
-                    <div class="form-group">
-                        {{ Form::label('name', trans('validation.attributes.frontend.name'), ['class' => 'col-md-4 control-label']) }}
-                        <div class="col-md-6">
-                            {{ Form::input('text', 'name', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.frontend.name')]) }}
-                        </div>
-                    </div>
-
-                    @if ($user->canChangeEmail())
-                        <div class="form-group">
-                            {{ Form::label('email', trans('validation.attributes.frontend.email'), ['class' => 'col-md-4 control-label']) }}
-                            <div class="col-md-6">
-                                {{ Form::input('email', 'email', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.frontend.email')]) }}
-                            </div>
-                        </div>
-                    @endif
-
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
-                            {{ Form::submit(trans('labels.general.buttons.save'), ['class' => 'btn btn-primary']) }}
-                        </div>
-                    </div>
-
-                    {{ Form::close() }}
-
-                </div><!--panel body-->
-
-            </div><!-- panel -->
-
-        </div><!-- col-md-10 -->
-
-    </div><!-- row -->
+    </div>
 @endsection

@@ -39,7 +39,7 @@ var vm = new Vue({
         // sticky content to centerPanel
         $('.ui.sticky').sticky({
             offset : 50,
-            pushing: false,
+            // pushing: false,
             context: '#centerPanel'
         });
 

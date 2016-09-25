@@ -79,7 +79,7 @@
                                 </small>
                             @endif
                         </div>
-                        <div class="description" style="min-height: 57px;">
+                        <div class="description text-ellipsis" style="min-height: 44px;">
                             <p>{{ $article->excerpt }}</p>
                         </div>
                         <div class="extra">
@@ -122,7 +122,7 @@
                             <a v-for="tag in moreArticle.tags" v-bind:href="'/tag/'+tag.id" v-text="tag.tag_name"></a>
                         </small>
                     </div>
-                    <div class="description">
+                    <div class="description text-ellipsis" style="min-height: 44px;">
                         <p v-text="moreArticle.excerpt"></p>
                     </div>
                     <div class="extra">
@@ -147,26 +147,13 @@
 
 @section('sidebar')
     {{--主题--}}
+    {{--<h3 class="ui dividing header">--}}
+        {{--今天快报--}}
+    {{--</h3>--}}
 
-    {{--<div class="ui fluid three item labeled icon menu">--}}
-    {{--<a class="item">--}}
-    {{--<i class="gamepad icon"></i>--}}
-    {{--Games--}}
-    {{--</a>--}}
-    {{--<a class="item">--}}
-    {{--<i class="video camera icon"></i>--}}
-    {{--Channels--}}
-    {{--</a>--}}
-    {{--<a class="item">--}}
-    {{--<i class="video play icon"></i>--}}
-    {{--Videos--}}
-    {{--</a>--}}
-    {{--</div>--}}
     {{--活动推荐--}}
     <h3 class="ui dividing header">
-        @if(!empty($article->channel))
-            推荐精选
-        @endif
+         推荐精选
     </h3>
     <div class="ui collapse">
         @foreach ($featuredArticles as $featuredArticle)
@@ -179,7 +166,7 @@
                         <img src="{{empty($featuredArticle->cover)? '/assets/images/jtmds.png' : $featuredArticle->cover}}">
                     </a>
                     <div class="content">
-                        <p>
+                        <p class="text-ellipsis">
                             <a href="{{url('/p/'.$featuredArticle->id)}}">{{$featuredArticle->title}}</a>
                         </p>
                         <div class="extra">

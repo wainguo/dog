@@ -10,6 +10,15 @@ body {
     display: none
 }
 
+/*两行,超出显示...*/
+.text-ellipsis {
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
 a {
     cursor: pointer;
     color: #333;
@@ -109,7 +118,6 @@ a:hover {
 .article.content {
     margin-bottom: 2em;
 }
-
 
 a.image img:hover {
     opacity:0.8;
@@ -302,6 +310,15 @@ a.image img:hover {
 }
 .ui.comments .reply.form textarea {
     height: 6em;
+}
+
+/* 发布文章*/
+/*.baoliao .field label {*/
+    /*width: 10%!important;*/
+/*}*/
+
+.baoliao .field .input {
+    width: 75%!important;
 }
 
 /*发布文章, 分类列表*/

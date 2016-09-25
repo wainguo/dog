@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Frontend\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\User\UpdateProfileRequest;
+
 use App\Repositories\Frontend\Access\User\UserRepositoryContract;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 
 /**
  * Class ProfileController
@@ -47,16 +51,17 @@ class ProfileController extends Controller
     }
 
 
-    public function getUpdateAvatar()
+    public function avatar()
     {
-        $user = Auth::user();
-        $avatar = url(Storage::url('avatar')).$user->id.".jpg";
-        return view('user.avatar', [
+//        $user = access()->user();
+        $avatar = url(Storage::url('avatar')).access()->id().".jpg";
+        return view('frontend.user.profile.avatar', [
             'avatar' => $avatar
         ]);
     }
 
-    public function postUpdateAvatar(Request $request)
+    //post
+    public function updateAvatar(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'source_image' => 'required',
@@ -78,7 +83,7 @@ class ProfileController extends Controller
         $w = $request->input('w');
         $h = $request->input('h');
 
-        $user = Auth::user();
+        $user = access()->user();
         $sourceImagePath = public_path().$sourceImage;
         $destImage = storage_path('app/public')."/avatar/".$user->id.".jpg";
 
@@ -86,8 +91,12 @@ class ProfileController extends Controller
             $constraint->aspectRatio();
         })->crop($w, $h, $x, $y)->resize(200, 200)->save($destImage, 80);
 
-        return view('user.profile', [
-            'user' => $user
-        ]);
+        $user->avatar = url('storage/avatar/'.$user->id.'.jpg');
+        $user->save();
+//        return view('frontend.user.profile.avatar', [
+//            'user' => $user
+//        ]);
+
+        return redirect()->route('frontend.user.dashboard')->withFlashSuccess(trans('strings.frontend.user.profile_updated'));
     }
 }

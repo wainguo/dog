@@ -60,7 +60,7 @@
                                 </small>
                             @endif
                         </div>
-                        <div class="description" style="min-height: 57px;">
+                        <div class="description text-ellipsis" style="min-height: 44px;">
                             <p>{{ $article->excerpt }}</p>
                         </div>
                         <div class="extra">
@@ -103,7 +103,7 @@
                             <a v-for="tag in moreArticle.tags" v-bind:href="'/tag/'+tag.id" v-text="tag.tag_name"></a>
                         </small>
                     </div>
-                    <div class="description">
+                    <div class="description text-ellipsis" style="min-height: 44px;">
                         <p v-text="moreArticle.excerpt"></p>
                     </div>
                     <div class="extra">
@@ -128,27 +128,34 @@
 
 @section('sidebar')
     {{--主题--}}
-
-    {{--<div class="ui fluid three item labeled icon menu">--}}
-    {{--<a class="item">--}}
-    {{--<i class="gamepad icon"></i>--}}
-    {{--Games--}}
-    {{--</a>--}}
-    {{--<a class="item">--}}
-    {{--<i class="video camera icon"></i>--}}
-    {{--Channels--}}
-    {{--</a>--}}
-    {{--<a class="item">--}}
-    {{--<i class="video play icon"></i>--}}
-    {{--Videos--}}
-    {{--</a>--}}
-    {{--</div>--}}
-    {{--活动推荐--}}
     <h3 class="ui dividing header">
-        @if(!empty($article->channel))
-            推荐精选
-        @endif
+        今天快报
     </h3>
+    <div>
+    <div class="ui collapse">
+        @foreach ($popularArticles as $popularArticle)
+            <div class="title">
+                {{$popularArticle->title}}
+            </div>
+            <div class="ui items">
+                <div class="item">
+                    <a class="ui tiny bordered image" href="{{url('/p/'.$popularArticle->id)}}">
+                        <img src="{{empty($popularArticle->cover)? '/assets/images/jtmds.png' : $popularArticle->cover}}">
+                    </a>
+                    <div class="content">
+                        <p class="text-ellipsis">
+                            <a href="{{url('/p/'.$popularArticle->id)}}">{{$popularArticle->title}}</a>
+                        </p>
+                        <div class="extra">
+                            <small class="ui text">阅读 {{$popularArticle->view_count}}</small>
+                            <small class="ui text">评论 {{$popularArticle->comment_count}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+    </div>
 
     <div class="ui fix top sticky">
         {{--<h3 class="ui dividing header">固定的短内容</h3>--}}

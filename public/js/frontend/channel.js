@@ -32,8 +32,16 @@ var vm = new Vue({
         // sticky content to centerPanel
         $('.ui.sticky').sticky({
             offset : 50,
-            pushing: false,
-            context: '#jtmdsChannel'
+            // pushing: false,
+            context: '#centerPanel'
+        });
+
+        $('.ui.collapse .title').first().addClass('active');
+        $('.ui.collapse .items').first().addClass('active');
+        $('.ui.collapse .title').mouseenter( function(){
+            $(this).siblings().filter('.active').removeClass('active');
+            $(this).addClass('active');
+            $(this).next().addClass('active');
         });
 
         $('.browse.item').popup({

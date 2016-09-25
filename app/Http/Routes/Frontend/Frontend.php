@@ -22,11 +22,15 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('dashboard', 'DashboardController@index')->name('frontend.user.dashboard');
         Route::get('profile/edit', 'ProfileController@edit')->name('frontend.user.profile.edit');
         Route::patch('profile/update', 'ProfileController@update')->name('frontend.user.profile.update');
+
+        Route::get('profile/avatar', 'ProfileController@avatar')->name('frontend.user.profile.avatar');
+        Route::post('profile/avatar', 'ProfileController@updateAvatar')->name('frontend.user.profile.update-avatar');
     });
 });
 
 Route::controllers([
     'article'   =>  'ArticleController',
+    'tool'   =>  'JtmdsToolController',
 ]);
 
 Route::controllers([

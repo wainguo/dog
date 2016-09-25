@@ -9,14 +9,15 @@
             <div class="section">{{ trans('navs.frontend.dashboard') }}</div>
         </div>
 
-        <div class="ui red segment">
+        {{--<div class="ui red segment">--}}
+        <div class="ui basic segment">
             <div class="ui two column grid">
                 <div class="four wide column center aligned">
                     <div class="blurring dimmable image">
                         <div class="ui inverted dimmer">
                             <div class="content">
                                 <div class="center">
-                                    <a href="{{url('/user/update-avatar')}}" class="ui mini orange button">更换头像</a>
+                                    <a href="{{url('/profile/avatar')}}" class="ui mini orange button">更换头像</a>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +142,6 @@
 @section('after-scripts-end')
     <script src="{{asset('assets/js/libs/vue-pagination.js') }}"></script>
     <script>
-
         var vm = new Vue({
             el: '#jtmdsBody',
             data: {

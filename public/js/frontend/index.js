@@ -40,10 +40,12 @@ var vm = new Vue({
         // sticky content to centerPanel
         $('.ui.sticky').sticky({
             offset : 50,
-            pushing: false,
+            // pushing: false,
             context: '#jtmdsHome'
         });
 
+        $('.ui.collapse .title').first().addClass('active');
+        $('.ui.collapse .items').first().addClass('active');
         $('.ui.collapse .title').mouseenter( function(){
             $(this).siblings().filter('.active').removeClass('active');
             $(this).addClass('active');

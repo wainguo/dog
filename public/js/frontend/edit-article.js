@@ -48,9 +48,9 @@ var vm = new Vue({
                 { name: 'about', groups: [ 'about' ] }
             ],
             removeButtons: 'Subscript,Superscript,About,Source,Cut,Undo,Copy,Redo,Paste,PasteText,PasteFromWord,Scayt,Anchor,SpecialChar,RemoveFormat',
-            height: 380,
+            height: 200,
             extraPlugins: 'autogrow',
-            autoGrow_minHeight: 380
+            autoGrow_minHeight: 200
         });
     },
 

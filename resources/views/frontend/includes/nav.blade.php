@@ -26,7 +26,8 @@
                 {{--<div class="login item link">登录</div>--}}
 
                 <div class="item link">
-                    <a href="{{ url('/article/edit') }}">爆料投稿</a>
+                    <a href="{{ url('/article/baoliao') }}">爆料投稿</a>
+                    {{--<a href="{{ url('/article/edit') }}">爆料投稿</a>--}}
                 </div>
                 <div class="ui dropdown item">
                     {{ access()->user()->name }}

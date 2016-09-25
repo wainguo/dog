@@ -1,7 +1,7 @@
 @extends('frontend.layouts.one')
 
-@section('styles')
-    <link href="{{asset('assets/css/jquery.Jcrop.css') }}" rel="stylesheet">
+@section('after-styles-end')
+    <link href="{{asset('vendor/jcrop/jquery.Jcrop.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -55,11 +55,11 @@
     </div>
     <div class="ui two column grid">
         <div class="eight wide column" style="text-align: center;">
-            <img v-bind:src="avatarUrl || '/assets/images/image.png'" id="cropbox"
+            <img v-bind:src="avatarUrl || '/img/image.png'" id="cropbox"
                  style="width: 100%;height: 100%;max-width: 500px;max-height: 500px;"/>
         </div>
         <div class="eight wide column">
-            <form class="ui large form" method="POST" action="{{ url('/user/update-avatar') }}">
+            <form class="ui large form" method="POST" action="{{ url('/profile/avatar') }}">
                 {!! csrf_field() !!}
                 <input type="hidden" id="container_width" name="container_width" />
                 <input type="hidden" id="x" name="x" />
@@ -81,9 +81,9 @@
 </div>
 @endsection
 
-@section('scripts')
-    <script src="{{asset('assets/js/vendor/jquery.form.js') }}"></script>
-    <script src="{{asset('assets/js/vendor/jquery.Jcrop.min.js') }}"></script>
+@section('after-scripts-end')
+    <script src="{{asset('js/vendor/jquery/jquery.form.js') }}"></script>
+    <script src="{{asset('vendor/jcrop/jquery.Jcrop.min.js') }}"></script>
 <script>
     var vm = new Vue({
         el: '#jtmdsBody',

@@ -37,7 +37,7 @@ class AuthRequiredApiController extends Controller
 
         $category = new Category();
         $category->category_name = $categoryName;
-        $category->category_parent = $categoryParent;
+        $category->parent_id = $categoryParent;
 
         if($category->save()){
             $categories = Category::root()
