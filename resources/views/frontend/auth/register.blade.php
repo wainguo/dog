@@ -19,11 +19,11 @@
                                 {{--<input type="text" name="name" value="{{ old('name') }}" placeholder="昵称">--}}
                                 {{ Form::input('name', 'name', old('name'), ['placeholder' => trans('validation.attributes.frontend.name')]) }}
                             </div>
-                            @if ($errors->has('name'))
-                                <div class="ui label">
-                                    {{ $errors->first('name') }}
-                                </div>
-                            @endif
+                            {{--@if ($errors->has('name'))--}}
+                                {{--<div class="ui label">--}}
+                                    {{--{{ $errors->first('name') }}--}}
+                                {{--</div>--}}
+                            {{--@endif--}}
                         </div>
                         <div class="field {{ $errors->has('email') ? 'error' : '' }}">
                             <div class="ui left icon input">
@@ -31,11 +31,11 @@
                                 {{--<input type="text" name="email" value="{{ old('email') }}" placeholder="登录账号E-mail">--}}
                                 {{ Form::input('email', 'email', old('email'), ['placeholder' => trans('validation.attributes.frontend.email')]) }}
                             </div>
-                            @if ($errors->has('email'))
-                                <div class="ui label">
-                                    {{ $errors->first('email') }}
-                                </div>
-                            @endif
+                            {{--@if ($errors->has('email'))--}}
+                                {{--<div class="ui label">--}}
+                                    {{--{{ $errors->first('email') }}--}}
+                                {{--</div>--}}
+                            {{--@endif--}}
                         </div>
                         <div class="field {{ $errors->has('password') ? 'error' : '' }}">
                             <div class="ui left icon input">
@@ -43,11 +43,11 @@
                                 {{--<input type="password" name="password" placeholder="登录密码">--}}
                                 {{ Form::input('password', 'password', null, ['placeholder' => trans('validation.attributes.frontend.password')]) }}
                             </div>
-                            @if ($errors->has('password'))
-                                <div class="ui label">
-                                    {{ $errors->first('password') }}
-                                </div>
-                            @endif
+                            {{--@if ($errors->has('password'))--}}
+                                {{--<div class="ui label">--}}
+                                    {{--{{ $errors->first('password') }}--}}
+                                {{--</div>--}}
+                            {{--@endif--}}
                         </div>
 
                         <div class="field {{ $errors->has('password_confirmation') ? 'error' : '' }}">
@@ -56,11 +56,11 @@
                                 {{--<input type="password" name="password_confirmation" placeholder="确认密码">--}}
                                 {{ Form::input('password', 'password_confirmation', null, ['placeholder' => trans('validation.attributes.frontend.password_confirmation')]) }}
                             </div>
-                            @if ($errors->has('password_confirmation'))
-                                <div class="ui pointing red basic label">
-                                    {{ $errors->first('password_confirmation') }}
-                                </div>
-                            @endif
+                            {{--@if ($errors->has('password_confirmation'))--}}
+                                {{--<div class="ui pointing red basic label">--}}
+                                    {{--{{ $errors->first('password_confirmation') }}--}}
+                                {{--</div>--}}
+                            {{--@endif--}}
                         </div>
                         {{--@if (config('access.captcha.registration'))--}}
                             {{--<div class="field">--}}

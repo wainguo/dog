@@ -56,7 +56,7 @@
         </div>
         <div class="ui right floated item">
             <div class="right floated">
-                <a class="ui circular twitter icon basic button">
+                <a href="http://weibo.com/jtmdscn" class="ui circular twitter icon basic button" target="_blank">
                     <i class="weibo red icon"></i>
                 </a>
                 <button class="ui circular google plus icon button">

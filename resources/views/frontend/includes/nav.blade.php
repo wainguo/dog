@@ -30,7 +30,7 @@
                     {{--<a href="{{ url('/article/edit') }}">爆料投稿</a>--}}
                 </div>
                 <div class="ui dropdown item">
-                    {{ access()->user()->name }}
+                    {{ access()->user()->name }}<i class="dropdown icon"></i>
                     <div class="menu">
                         {{ link_to_route('frontend.user.dashboard', trans('navs.frontend.dashboard'), [], ['class' => 'item']) }}
 

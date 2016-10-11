@@ -14,7 +14,19 @@
             <h5 class="header">友情链接</h5>
             <div class="ui horizontal list">
                 <a class="item" href="http://bbs.jtmds.cn">
-                    大赚吧
+                    买吧
+                </a>
+                <a class="item" href="http://union.click.jd.com/jdc?e=&p=AyICZRprEAIQA1MaWBYyVlgNRQQlW1dCFBBFC0RUQUpADgpQTFtLKy9RAGxDI0cFcFpOAAsYXxZdd18RaDsZDiIGZRtaFAMTB1QeUh0yImYnKxB7AyIFXRpSEgQTAFIrWxAEFQddElsQAxsAUitZFTJUVw1EDVFcIjc%3D&t=W1dCFBBFC0RUQUpADgpQTFtL">
+                    京东商城
+                </a>
+                <a class="item" href="http://www.suning.com">
+                    苏宁易购
+                </a>
+                <a class="item" href="http://www.tmall.com">
+                    天猫
+                </a>
+                <a class="item" href="http://www.amazon.com">
+                    亚马逊
                 </a>
             </div>
         </div>

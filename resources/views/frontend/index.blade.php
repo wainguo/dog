@@ -153,7 +153,7 @@
 
     {{--活动推荐--}}
     <h3 class="ui dividing header">
-         推荐精选
+         推荐
     </h3>
     <div class="ui collapse">
         @foreach ($featuredArticles as $featuredArticle)
@@ -179,9 +179,18 @@
         @endforeach
     </div>
 
+    <h3 class="ui dividing header">
+        商城精选
+    </h3>
     <div class="ui fix top sticky">
-        {{--<h3 class="ui dividing header">固定的短内容</h3>--}}
-        <img class="ui wireframe image" src="{{asset('/img/jtmds.png')}}">
+        <a href="http://union.click.jd.com/jdc?e=&p=AyICZRprEAIQA1MaWBYyVlgNRQQlW1dCFBBFC0RUQUpADgpQTFtLKy9RAGxDI0cFcFpOAAsYXxZdd18RaDsZDiIGZRtaFAMTB1QeUh0yImYnKxB7AyIFXRpSEgQTAFIrWxAEFQddElsQAxsAUitZFTJUVw1EDVFcIjc%3D&t=W1dCFBBFC0RUQUpADgpQTFtL">
+            <img class="ui wireframe image" src="http://img30.360buyimg.com/ads/jfs/t1522/46/1325459920/8364/bee67ef6/55c34a12N687b364f.jpg">
+        </a>
+
+        <a  href="http://union.click.jd.com/jdc?e=&p=AyICZRprEAIQA1MaUxIyVlgNRQQlW1dCFBBFC1BLVwpED0gdSVJKSQVJHBIFVR9HFQAXBUpCHklfIg8qTFxpYkRQNUdcQXhXRA1sJE9QDGdZF2sUMhIGVBpaFQMXDl0ra3RwIkw7GmsXChMOUh1aEgUiB1AdXBUKFAFcE14QAyIFVSsdRVpNURFFayU%3D&t=W1dCFBBFC1BLVwpED0gdSVJKSQVJHBIFVR9HFQAXBUpCHklf">
+            <img class="ui wireframe image" src="http://img30.360buyimg.com/ads/jfs/t739/58/630204481/75328/17dde1f5/54c8cc21N60692e2b.jpg">
+        </a>
+
     </div>
 @endsection
 

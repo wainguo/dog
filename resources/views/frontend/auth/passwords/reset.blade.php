@@ -25,22 +25,22 @@
                                 <i class="user icon"></i>
                                 <input type="text" name="email" value="{{ $email or old('email') }}" placeholder="登录账号E-mail">
                             </div>
-                            @if ($errors->has('email'))
-                                <div class="ui label">
-                                    {{ $errors->first('email') }}
-                                </div>
-                            @endif
+                            {{--@if ($errors->has('email'))--}}
+                                {{--<div class="ui label">--}}
+                                    {{--{{ $errors->first('email') }}--}}
+                                {{--</div>--}}
+                            {{--@endif--}}
                         </div>
                         <div class="field {{ $errors->has('password') ? 'error' : '' }}">
                             <div class="ui left icon input">
                                 <i class="lock icon"></i>
                                 {{ Form::input('password', 'password', null, ['placeholder' => trans('validation.attributes.frontend.password')]) }}
                             </div>
-                            @if ($errors->has('password'))
-                                <div class="ui label">
-                                    {{ $errors->first('password') }}
-                                </div>
-                            @endif
+                            {{--@if ($errors->has('password'))--}}
+                                {{--<div class="ui label">--}}
+                                    {{--{{ $errors->first('password') }}--}}
+                                {{--</div>--}}
+                            {{--@endif--}}
                         </div>
 
                         <div class="field {{ $errors->has('password_confirmation') ? 'error' : '' }}">
@@ -48,11 +48,11 @@
                                 <i class="lock icon"></i>
                                 {{ Form::input('password', 'password_confirmation', null, ['placeholder' => trans('validation.attributes.frontend.password_confirmation')]) }}
                             </div>
-                            @if ($errors->has('password_confirmation'))
-                                <div class="ui pointing red basic label">
-                                    {{ $errors->first('password_confirmation') }}
-                                </div>
-                            @endif
+                            {{--@if ($errors->has('password_confirmation'))--}}
+                                {{--<div class="ui pointing red basic label">--}}
+                                    {{--{{ $errors->first('password_confirmation') }}--}}
+                                {{--</div>--}}
+                            {{--@endif--}}
                         </div>
 
                         {{ Form::submit(trans('labels.frontend.passwords.reset_password_button'), ['class' => 'ui fluid large red submit button']) }}

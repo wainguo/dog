@@ -3,6 +3,7 @@
 <div class="ui container">
     <div class="ui grid">
         <div class="sixteen wide column" id="centerPanel">
+            @include('includes.partials.messages')
             @yield('content')
         </div>
     </div>

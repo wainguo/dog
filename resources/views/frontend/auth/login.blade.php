@@ -16,22 +16,22 @@
                                 <i class="user icon"></i>
                                 {{ Form::input('email', 'email', old('email'), ['placeholder' => '登录账号E-mail']) }}
                             </div>
-                            @if ($errors->has('email'))
-                                <div class="ui label">
-                                    {{ $errors->first('email') }}
-                                </div>
-                            @endif
+                            {{--@if ($errors->has('email'))--}}
+                                {{--<div class="ui label">--}}
+                                    {{--{{ $errors->first('email') }}--}}
+                                {{--</div>--}}
+                            {{--@endif--}}
                         </div>
                         <div class="field {{ $errors->has('password') ? 'error' : '' }}">
                             <div class="ui left icon input">
                                 <i class="lock icon"></i>
                                 {{ Form::input('password', 'password', null, ['placeholder' => '登录密码']) }}
                             </div>
-                            @if ($errors->has('password'))
-                                <div class="ui label">
-                                    {{ $errors->first('password') }}
-                                </div>
-                            @endif
+                            {{--@if ($errors->has('password'))--}}
+                                {{--<div class="ui label">--}}
+                                    {{--{{ $errors->first('password') }}--}}
+                                {{--</div>--}}
+                            {{--@endif--}}
                         </div>
                         <div class="inline fields">
                             <div class="nine wide field">
