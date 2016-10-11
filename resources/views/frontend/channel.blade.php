@@ -121,10 +121,11 @@
 
 @section('sidebar')
     {{--主题--}}
-    <h3 class="ui dividing header">
+    <h3 class="ui header">
         今天快报
     </h3>
-    <div>
+
+    <div class="ui divider"></div>
     <div class="ui collapse">
         @foreach ($popularArticles as $popularArticle)
             <div class="title">
@@ -147,7 +148,6 @@
                 </div>
             </div>
         @endforeach
-    </div>
     </div>
 
     <div class="ui fix top sticky">
