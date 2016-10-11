@@ -23,7 +23,7 @@
             {{--<p>Get the best news in your e-mail every day.</p>--}}
         {{--</div>--}}
     {{--</div>--}}
-    <div class="ui devider"></div>
+    <div class="ui divider"></div>
 
     <div id="jtmdsChannel" class="container">
         <div class="ui divided items">
