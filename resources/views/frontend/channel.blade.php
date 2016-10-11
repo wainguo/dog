@@ -16,21 +16,14 @@
         <input type="hidden" id="channelId" value="{{$channel->id or 0}}">
     </div>
 
-    {{--<div class="ui top attached secondary pointing menu tabular">--}}
-    {{--<a class="item active">社论</a>--}}
-    {{--<a class="item">Reviews</a>--}}
-    {{--<a class="item">即将举办的活动</a>--}}
+    {{--<div class="ui icon warning message">--}}
+        {{--<i class="inbox icon"></i>--}}
+        {{--<div class="content">--}}
+            {{--<div class="header">你听说过我们的邮件列表吗？ </div>--}}
+            {{--<p>Get the best news in your e-mail every day.</p>--}}
+        {{--</div>--}}
     {{--</div>--}}
-    {{--<div class="ui attached red segment">--}}
-    {{--<img src="assets/images/a.png" class="ui wireframe image">--}}
-    {{--</div>--}}
-    <div class="ui icon warning message">
-        <i class="inbox icon"></i>
-        <div class="content">
-            <div class="header">你听说过我们的邮件列表吗？ </div>
-            <p>Get the best news in your e-mail every day.</p>
-        </div>
-    </div>
+    <div class="ui devider"></div>
 
     <div id="jtmdsChannel" class="container">
         <div class="ui divided items">
