@@ -65,7 +65,7 @@
                     </a>
                     <div class="content">
                         <a class="header" href="{{ url('/p/'.$article->id) }}">
-                            {{ $article->title }}<span style="color:#d62222">{{ $article->description }}</span>
+                            {{ $article->title }} <span style="color:#d62222">{{ $article->description }}</span>
                         </a>
                         <div class="meta">
                             <small class="right floated">{{ $article->created_at }}</small>
