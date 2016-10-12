@@ -3,8 +3,6 @@
 @section('after-styles-end')
     {!! Html::style('vendor/slick/slick.css') !!}
     {!! Html::style('vendor/slick/slick-theme.css') !!}
-    {{--<link href="{{asset('assets/css/slick.css') }}" rel="stylesheet">--}}
-    {{--<link href="{{asset('assets/css/slick-theme.css') }}" rel="stylesheet">--}}
 @endsection
 
 @section('content')
@@ -16,13 +14,6 @@
         <input type="hidden" id="channelId" value="{{$channel->id or 0}}">
     </div>
 
-    {{--<div class="ui icon warning message">--}}
-        {{--<i class="inbox icon"></i>--}}
-        {{--<div class="content">--}}
-            {{--<div class="header">你听说过我们的邮件列表吗？ </div>--}}
-            {{--<p>Get the best news in your e-mail every day.</p>--}}
-        {{--</div>--}}
-    {{--</div>--}}
     <div class="ui divider"></div>
 
     <div id="jtmdsChannel" class="container">
@@ -71,6 +62,8 @@
                 </div>
             @endforeach
         </div>
+        {{--广告位--}}
+        <script type="text/javascript">var jd_union_unid="1000010489",jd_ad_ids="506:6",jd_union_pid="CNrE9Mv7KhD55evcAxoAINqelusBKgA=";var jd_width=760;var jd_height=90;var jd_union_euid="";var p="BxoFVRNfFAoUNwpfBkgyTUMIRmtKRk9aZV8ETVxNNwpfBkgyWQYLRxBqaUViAmUnTmdvdw1HGFFcYgtZK14dABEGVhpYEzISBlQaWhUDFw5dK2tKRk9aZVA1FDJNQwhGaxUHFABWEl8TBRsEXBlrFDIiNw%3D%3D";</script><script type="text/javascript" charset="utf-8" src="//u.x.jd.com/static/js/auto.js"></script>
 
         <div id="moreArticles" class="ui divided items" v-if="moreArticles.length" v-cloak>
             <div class="item" v-for="moreArticle in moreArticles">
@@ -152,14 +145,12 @@
 
     <div class="ui fix top sticky">
         <div class="ui fix top sticky">
-            <a href="http://union.click.jd.com/jdc?e=&p=AyICZRprEAIQA1MaWBYyVlgNRQQlW1dCFBBFC0RUQUpADgpQTFtLKy9RAGxDI0cFcFpOAAsYXxZdd18RaDsZDiIGZRtaFAMTB1QeUh0yImYnKxB7AyIFXRpSEgQTAFIrWxAEFQddElsQAxsAUitZFTJUVw1EDVFcIjc%3D&t=W1dCFBBFC0RUQUpADgpQTFtL">
-                <img class="ui wireframe image" src="http://img30.360buyimg.com/ads/jfs/t1522/46/1325459920/8364/bee67ef6/55c34a12N687b364f.jpg">
-            </a>
+            {{--<a href="http://union.click.jd.com/jdc?e=&p=AyICZRprEAIQA1MaWBYyVlgNRQQlW1dCFBBFC0RUQUpADgpQTFtLKy9RAGxDI0cFcFpOAAsYXxZdd18RaDsZDiIGZRtaFAMTB1QeUh0yImYnKxB7AyIFXRpSEgQTAFIrWxAEFQddElsQAxsAUitZFTJUVw1EDVFcIjc%3D&t=W1dCFBBFC0RUQUpADgpQTFtL">--}}
+                {{--<img class="ui wireframe image" src="http://img30.360buyimg.com/ads/jfs/t1522/46/1325459920/8364/bee67ef6/55c34a12N687b364f.jpg">--}}
+            {{--</a>--}}
 
-            <a  href="http://union.click.jd.com/jdc?e=&p=AyICZRprEAIQA1MaUxIyVlgNRQQlW1dCFBBFC1BLVwpED0gdSVJKSQVJHBIFVR9HFQAXBUpCHklfIg8qTFxpYkRQNUdcQXhXRA1sJE9QDGdZF2sUMhIGVBpaFQMXDl0ra3RwIkw7GmsXChMOUh1aEgUiB1AdXBUKFAFcE14QAyIFVSsdRVpNURFFayU%3D&t=W1dCFBBFC1BLVwpED0gdSVJKSQVJHBIFVR9HFQAXBUpCHklf">
-                <img class="ui wireframe image" src="http://img30.360buyimg.com/ads/jfs/t739/58/630204481/75328/17dde1f5/54c8cc21N60692e2b.jpg">
-            </a>
-
+            <p></p>
+            <script type="text/javascript">var jd_union_unid="1000010489",jd_ad_ids="514:6",jd_union_pid="CMvk/Mv7KhD55evcAxoAIO6bl+sBKgA=";var jd_width=300;var jd_height=300;var jd_union_euid="";var p="BxoFVRNYFAsVNwpfBkgyTUMIRmtKRk9aZV8ETVxNNwpfBkgyEH1dS0VoY0dnCBgMc3l1XSxiHnwEYgtZK14dABEGVhpYEzISBlQaWhUDFw5dK2tKRk9aZVA1FDJNQwhGaxUHFABWEl8dAxACVxxrFDIiNw%3D%3D";</script><script type="text/javascript" charset="utf-8" src="//u.x.jd.com/static/js/auto.js"></script>
         </div>
     </div>
 @endsection

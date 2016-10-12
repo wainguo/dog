@@ -32,7 +32,7 @@
         </div>
         <div class="ui basic segment">
             <p>版权所有 本站内容未经书面许可,禁止一切形式的转载。</p>
-            <p>© copyright 2016 今天买点啥. 京ICP备11011542号</p>
+            <p>© copyright 2016 今天买点啥. 京ICP备11011542号-5</p>
             {{--<div class="ui right floated horizontal list">--}}
             {{--<div class="disabled item" href="#">© copyright 2016 今天买点啥. 京ICP备11011542号</div>--}}
             {{--</div>--}}
