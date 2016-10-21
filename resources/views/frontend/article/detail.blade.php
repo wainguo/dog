@@ -51,7 +51,7 @@
                         @if(!Auth::guest() && $article->user_id == Auth::user()->id)
                             <a class="mini ui blue button" href="{{url('article/edit/'.$article->id)}}">编辑</a>
                         @endif
-                        <button class="mini ui red right floated button">直达链接 <i class="chevron right icon"></i></button>
+                        <a class="mini ui red right floated button" href="{{$article->url}}">直达链接 <i class="chevron right icon"></i></a>
                         <button class="mini ui basic right floated button weixinQr" data-position="right center">
                             <i class="qrcode icon"></i>扫码购买</button>
                         <div class="ui flowing popup top left transition hidden">

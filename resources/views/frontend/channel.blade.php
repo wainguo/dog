@@ -17,6 +17,8 @@
     <div class="ui divider"></div>
 
     <div id="jtmdsChannel" class="container">
+        <iframe src="//rcm-cn.amazon-adsystem.com/e/cm?t=jc0e-23&o=28&p=48&l=ez&f=ifr&f=ifr" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;max-width:800px;max-height:600px;"></iframe>
+
         <div class="ui divided items">
             @foreach ($articles as $article)
                 <div class="item">

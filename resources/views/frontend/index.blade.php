@@ -28,29 +28,9 @@
                     <img src="{{ url($showcaseArticle->cover) }}">
                 </a>
             @endforeach
-
-            {{--http://eimg.smzdm.com/201607/28/579959f40d43f3774.png--}}
-            {{--<a href="">--}}
-            {{--<img src="http://eimg.smzdm.com/201607/28/57995a5ad46c65680.png">--}}
-            {{--</a>--}}
-            {{--<a href="">--}}
-            {{--<img src="http://eimg.smzdm.com/201607/28/57995a751f81a3923.png">--}}
-            {{--</a>--}}
         </div>
     </div>
-    {{--<div class="ui top attached secondary pointing menu tabular">--}}
-    {{--<a class="item active">社论</a>--}}
-    {{--<a class="item">Reviews</a>--}}
-    {{--<a class="item">即将举办的活动</a>--}}
-    {{--</div>--}}
-    {{--<div class="ui attached red segment">--}}
-    {{--<img src="assets/images/a.png" class="ui wireframe image">--}}
-    {{--</div>--}}
-    {{--<div class="ui icon warning message">--}}
-        {{--<div class="content">--}}
-            {{--<p>Get the best news in your e-mail every day.</p>--}}
-        {{--</div>--}}
-    {{--</div>--}}
+
     <div class="ui divider"></div>
 
     <div id="jtmdsHome" class="container">

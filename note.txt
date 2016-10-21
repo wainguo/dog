@@ -12,3 +12,9 @@ composer require intervention/image
 
 cd public
 ln -s ../storage/app/public storage
+
+
+
+这里是您链接到Amazon.cn首页的个人格式
+https://www.amazon.cn?_encoding=UTF8&tag=jc0e-23
+点此查看HTML代码。
