@@ -147,12 +147,14 @@
 
     <div class="ui fix top sticky">
         <div class="ui fix top sticky">
-            {{--<a href="http://union.click.jd.com/jdc?e=&p=AyICZRprEAIQA1MaWBYyVlgNRQQlW1dCFBBFC0RUQUpADgpQTFtLKy9RAGxDI0cFcFpOAAsYXxZdd18RaDsZDiIGZRtaFAMTB1QeUh0yImYnKxB7AyIFXRpSEgQTAFIrWxAEFQddElsQAxsAUitZFTJUVw1EDVFcIjc%3D&t=W1dCFBBFC0RUQUpADgpQTFtL">--}}
-                {{--<img class="ui wireframe image" src="http://img30.360buyimg.com/ads/jfs/t1522/46/1325459920/8364/bee67ef6/55c34a12N687b364f.jpg">--}}
-            {{--</a>--}}
-
+            {{--苏宁橱窗--}}
             <p></p>
-            <script type="text/javascript">var jd_union_unid="1000010489",jd_ad_ids="514:6",jd_union_pid="CMvk/Mv7KhD55evcAxoAIO6bl+sBKgA=";var jd_width=300;var jd_height=300;var jd_union_euid="";var p="BxoFVRNYFAsVNwpfBkgyTUMIRmtKRk9aZV8ETVxNNwpfBkgyEH1dS0VoY0dnCBgMc3l1XSxiHnwEYgtZK14dABEGVhpYEzISBlQaWhUDFw5dK2tKRk9aZVA1FDJNQwhGaxUHFABWEl8dAxACVxxrFDIiNw%3D%3D";</script><script type="text/javascript" charset="utf-8" src="//u.x.jd.com/static/js/auto.js"></script>
+            <div style="position: relative; display: inline; border: none; padding: 0px; margin: 0px; visibility: visible; overflow: hidden;">
+                <script type="text/javascript">
+                    var allyes_siteid='7569', allyes_output=1, allyes_channedid='8281',allyes_ad_width='330',allyes_ad_height='280',allyes_adspaceid='347-dXNlcklkPTE2MDE3Njk1JndlYlNpdGVJZD01MDM2OTkmYWRJbmZvSWQ9MCZhZEJvb2tJZD0xMDE4NTEmY2hhbm5lbD05OCZyPTE0NzcxMjA4ODAyNDg=', allyes_host_addr='mmae.qtmojo.com';
+                </script>
+                <script id="allyes_mm_ad_7569_8281_347-dXNlcklkPTE2MDE3Njk1JndlYlNpdGVJZD01MDM2OTkmYWRJbmZvSWQ9MCZhZEJvb2tJZD0xMDE4NTEmY2hhbm5lbD05OCZyPTE0NzcxMjA4ODAyNDg=" type="text/javascript" src="http://1.qtmojo.com/mediamax/MediaMax.js"></script>
+            </div>
         </div>
     </div>
 @endsection

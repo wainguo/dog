@@ -48,9 +48,18 @@
                         <p>{{ $article->excerpt }}</p>
                     </div>
                     <div class="extra">
-                        @if(!Auth::guest() && $article->user_id == Auth::user()->id)
-                            <a class="mini ui blue button" href="{{url('article/edit/'.$article->id)}}">编辑</a>
-                        @endif
+                        <!-- JiaThis Button BEGIN -->
+                        <div class="jiathis_style">
+                            <div style="display:block; margin-top: 10px;">
+                            {{--<span class="jiathis_txt">分享到：</span>--}}
+                            <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">分享到：</a>
+                            <a class="jiathis_button_qzone">QQ空间</a>
+                            <a class="jiathis_button_tsina">微博</a>
+                            <a class="jiathis_button_weixin">微信</a>
+                            {{--<a class="jiathis_counter_style"></a>--}}
+                            </div>
+                        </div>
+                        <!-- JiaThis Button END -->
                         <a class="mini ui red right floated button" href="{{$article->url}}">直达链接 <i class="chevron right icon"></i></a>
                         <button class="mini ui basic right floated button weixinQr" data-position="right center">
                             <i class="qrcode icon"></i>扫码购买</button>
@@ -71,6 +80,9 @@
 
         <div>
             <div class="ui horizontal right floated celled link list">
+            @if(!Auth::guest() && $article->user_id == Auth::user()->id)
+                <a class="item" href="{{url('article/edit/'.$article->id)}}">编辑</a>
+            @endif
                 <a class="item">
                     收藏
                 </a>
@@ -177,16 +189,36 @@
             </div>
         @endforeach
     </div>
+
+    <div class="ui fix top sticky">
+        <div class="ui fix top sticky">
+            <script type="text/javascript">var jd_union_unid="1000010489",jd_ad_ids="514:6",jd_union_pid="CMvk/Mv7KhD55evcAxoAIO6bl+sBKgA=";var jd_width=300;var jd_height=300;var jd_union_euid="";var p="BxoFVRNYFAsVNwpfBkgyTUMIRmtKRk9aZV8ETVxNNwpfBkgyEH1dS0VoY0dnCBgMc3l1XSxiHnwEYgtZK14dABEGVhpYEzISBlQaWhUDFw5dK2tKRk9aZVA1FDJNQwhGaxUHFABWEl8dAxACVxxrFDIiNw%3D%3D";</script><script type="text/javascript" charset="utf-8" src="//u.x.jd.com/static/js/auto.js"></script>
+        </div>
+    </div>
 @endsection
 
 @section('after-scripts-end')
 {{--    <script type="text/javascript" src="{{asset('assets/js/vendor/jquery.qrcode.min.js')}}"></script>--}}
     {!! Html::script('js/vendor/jquery/jquery.qrcode.min.js') !!}
     {!! Html::script('js/frontend/article.js') !!}
+
     <script>
         $(document).ready(function () {
             $('.weixinQr').popup();
             $('#qrcode').qrcode("{{$article->url}}");
         });
     </script>
+
+<script type="text/javascript" >
+    var jiathis_config={
+        url:"{{$article->url}}",
+        summary:"{{$article->excerpt}}",
+        title:"{{$article->title}} #今天买点啥#",
+        shortUrl:false,
+        hideMore:false
+    }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+
+
 @endsection
