@@ -5,6 +5,7 @@
  */
 Route::get('/', 'FrontendController@index')->name('frontend.index');
 Route::get('/about', 'FrontendController@about')->name('frontend.about');
+Route::get('/astore', 'FrontendController@astore')->name('frontend.astore');
 Route::get('/terms', 'FrontendController@terms')->name('frontend.terms');
 Route::get('/contact', 'FrontendController@contact')->name('frontend.contact');
 Route::get('/youhui', 'FrontendController@youhui')->name('frontend.youhui');

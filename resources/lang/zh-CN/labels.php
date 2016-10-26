@@ -72,6 +72,17 @@ return [
                 ],
             ],
         ],
+        'slider' => [
+            'management' => '幻灯管理',
+            'create' => '创建幻灯片',
+            'edit' => '编辑',
+            'table' => [
+                'title' => '标题',
+                'url' => '链接地址',
+                'cover' => '图片',
+                'createtime' => '创建时间'
+            ]
+        ],
     ],
 
     'frontend' => [

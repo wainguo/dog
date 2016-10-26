@@ -40,6 +40,11 @@
                 </li>
             @endauth
 
+            {{--slider 幻灯管理--}}
+            <li class="{{ Active::pattern('admin/slider/*') }}">
+                {{ link_to_route('admin.slider.index', trans('menus.backend.slider.management')) }}
+            </li>
+
             <li class="{{ Active::pattern('admin/log-viewer*') }} treeview">
                 <a href="#">
                     <span>{{ trans('menus.backend.log-viewer.main') }}</span>

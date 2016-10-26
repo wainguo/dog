@@ -28,6 +28,11 @@ return [
             'restored' => 'The user was successfully restored.',
             'updated' => 'The user was successfully updated.',
             'updated_password' => "The user's password was successfully updated.",
+        ],
+
+        'slider' => [
+            'created' => '幻灯片创建成功。',
+            'updated' => '幻灯片更新成功。',
         ]
     ],
 ];

@@ -15,8 +15,8 @@
             <div class="single-item" id="mainSlide">
                 @foreach($homeslideArticles as $homeslideArticle)
                     <div>
-                        <a href="{{ url('/p/'.$homeslideArticle->id) }}" target="_blank">
-                            <img src="{{ url($homeslideArticle->cover) }}" alt="{{ $homeslideArticle->title }}">
+                        <a href="{{ $homeslideArticle->url }}" target="_blank">
+                            <img src="{{ $homeslideArticle->cover }}" alt="{{ $homeslideArticle->title }}">
                         </a>
                     </div>
                 @endforeach

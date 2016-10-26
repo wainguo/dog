@@ -15,35 +15,39 @@ return [
 
     'backend' => [
         'access' => [
-            'title' => 'Access Management',
+            'title' => '访问权限管理',
 
             'roles' => [
-                'all' => 'All Roles',
-                'create' => 'Create Role',
-                'edit' => 'Edit Role',
-                'management' => 'Role Management',
-                'main' => 'Roles',
+                'all' => '全部角色',
+                'create' => '创建角色(Role)',
+                'edit' => '编辑角色',
+                'management' => '角色管理',
+                'main' => '角色',
             ],
 
             'users' => [
-                'all' => 'All Users',
-                'change-password' => 'Change Password',
-                'create' => 'Create User',
-                'deactivated' => 'Deactivated Users',
-                'deleted' => 'Deleted Users',
-                'edit' => 'Edit User',
-                'main' => 'Users',
+                'all' => '全部用户',
+                'change-password' => '更改密码',
+                'create' => '创建用户(User)',
+                'deactivated' => '冻结用户',
+                'deleted' => '删除用户',
+                'edit' => '编辑用户',
+                'main' => '用户',
             ],
         ],
 
+        'slider' => [
+            'management' => '幻灯管理',
+        ],
+
         'log-viewer' => [
-            'main' => 'Log Viewer',
-            'dashboard' => 'Dashboard',
-            'logs' => 'Logs',
+            'main' => '日志查看',
+            'dashboard' => '仪表盘',
+            'logs' => '日志',
         ],
 
         'sidebar' => [
-            'dashboard' => 'Dashboard',
+            'dashboard' => '管理首页',
             'general' => 'General',
         ],
     ],

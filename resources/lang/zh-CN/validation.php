@@ -147,6 +147,13 @@ return [
                     'send_confirmation_email' => '发送确认邮件',
                 ],
             ],
+
+            'slider' => [
+                'title' => '标题',
+                'url' => '链接',
+                'cover' => '图片',
+                'sort' => '排序',
+            ]
         ],
 
         'frontend' => [

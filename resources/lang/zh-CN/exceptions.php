@@ -41,6 +41,11 @@ return [
                 'update_password_error' => 'There was a problem changing this users password. Please try again.',
             ],
         ],
+        'slider' => [
+            'create_error' => 'There was a problem creating this slider. Please try again.',
+            'update_error' => 'There was a problem updating this slider. Please try again.',
+            'delete_error' => 'There was a problem deleting this slider. Please try again.',
+        ]
     ],
 
     'frontend' => [

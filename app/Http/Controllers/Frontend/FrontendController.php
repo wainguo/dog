@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Article\Article;
 use App\Models\Article\Channel;
+use App\Models\Slider;
 use App\Models\Wisdom;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,8 +28,10 @@ class FrontendController extends Controller
         }
 
         //slide show 6 items
+//        $homeslideArticles = Article::block('homeslide')->take(6)->get();
+        $homeslideArticles = Slider::active()->take(6)->get();
+
         $featuredArticles = Article::block('featured')->take(6)->get();
-        $homeslideArticles = Article::block('homeslide')->take(6)->get();
         $showcaseArticles = Article::block('showcase')->take(3)->get();
 
         //first page articles
@@ -120,6 +123,12 @@ class FrontendController extends Controller
             'articles' => $articles,
             'popularArticles' => $popularArticles
         ]);
+    }
+
+    //    amazon aStore
+    public function astore()
+    {
+        return view('frontend.astore');
     }
 
     //about

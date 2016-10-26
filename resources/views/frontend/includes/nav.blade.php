@@ -7,6 +7,8 @@
         <a href="{{url('/coupon')}}" class="item">优惠券</a>
         <a href="{{url('/news')}}" class="item">资讯</a>
         <a href="{{url('/post')}}" class="item">原创</a>
+        <a href="{{url('/astore')}}" class="item">美亚海淘</a>
+        {{--<a href="http://astore.amazon.com/jtmdscn-20" class="item">亚马逊</a>--}}
         <a href="http://bbs.jtmds.cn" class="item" target="_blank">买吧·论坛</a>
         <div class="ui dropdown item" tabindex="0">
             更多 <i class="dropdown icon"></i>
