@@ -21,7 +21,7 @@
                                 </div>
                             </div>
                         </div>
-                        <img class="ui small image" src="{{ $user->picture }}">
+                        <img class="ui small image" src="{{ $logged_in_user->picture }}">
                     </div>
                 </div>
                 <div class="twelve wide column">
@@ -31,12 +31,12 @@
                                 <a href="{{route('frontend.user.profile.edit')}}" class="ui red right corner label">
                                     <i class="edit icon"></i>
                                 </a>
-                                <div class="header">{{$user->name}}</div>
+                                <div class="header">{{$logged_in_user->name}}</div>
                                 <div class="description">
                                     <div class="ui tiny four statistics">
                                         <div class="red statistic">
                                             <div class="value">
-                                                {{$user->profile->coin_count or 0}}
+                                                {{$logged_in_user->profile->coin_count or 0}}
                                             </div>
                                             <div class="label">
                                                 <i class="ticket icon"></i>积分
@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="red statistic">
                                             <div class="value">
-                                                {{$user->profile->article_count or 0}}
+                                                {{$logged_in_user->profile->article_count or 0}}
                                             </div>
                                             <div class="label">
                                                 <i class="newspaper icon"></i>文章
@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="red statistic">
                                             <div class="value">
-                                                {{$user->profile->favor_count or 0}}
+                                                {{$logged_in_user->profile->favor_count or 0}}
                                             </div>
                                             <div class="label">
                                                 <i class="star icon"></i>收藏
@@ -60,7 +60,7 @@
                                         </div>
                                         <div class="red statistic">
                                             <div class="value">
-                                                {{$user->profile->comment_count or 0}}
+                                                {{$logged_in_user->profile->comment_count or 0}}
                                             </div>
                                             <div class="label">
                                                 <i class="comment outline icon"></i>评论
@@ -72,14 +72,14 @@
                                 <div class="meta">
                                     <small class="right floated">
                                         {{ trans('labels.frontend.user.profile.created_at') }}
-                                        {{ $user->created_at }} ({{ $user->created_at->diffForHumans() }})
+                                        {{ $logged_in_user->created_at }} ({{ $logged_in_user->created_at->diffForHumans() }})
                                     </small>
-                                    {{ trans('labels.frontend.user.profile.email') }}: {{ $user->email }}
+                                    {{ trans('labels.frontend.user.profile.email') }}: {{ $logged_in_user->email }}
                                 </div>
                                 <div class="ui divider"></div>
                                 <div class="extra">
                                     <p>
-                                        {{empty($user->profile->profile_introduction) ? '您还没有设置个人简介，去设置吧。': $user->profile->profile_introduction}}
+                                        {{empty($logged_in_user->profile->profile_introduction) ? '您还没有设置个人简介，去设置吧。': $logged_in_user->profile->profile_introduction}}
                                     </p>
                                 </div>
                             </div>
@@ -91,10 +91,16 @@
         <div>
             <p>
             {{ trans('labels.frontend.user.profile.last_updated') }}
-            {{ $user->updated_at }} ({{ $user->updated_at->diffForHumans() }})
+            {{ $logged_in_user->updated_at }} ({{ $logged_in_user->updated_at->diffForHumans() }})
             </p>
         </div>
+{{--todo--}}
+        {{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => 'btn btn-info btn-xs']) }}
 
+        @permission('view-backend')
+        {{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration'), [], ['class' => 'btn btn-danger btn-xs']) }}
+        @endauth
+{{--todo end--}}
         <h3 class="ui dividing header">
             文章列表
         </h3>
@@ -102,7 +108,7 @@
         <div class="ui feed" v-cloak>
             <div class="event" v-for="article in articles">
                 <div class="label">
-                    <img src="{{ $user->picture }}">
+                    <img src="{{ $logged_in_user->picture }}">
                 </div>
                 <div class="content">
                     <div class="summary">

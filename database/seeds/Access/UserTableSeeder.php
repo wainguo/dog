@@ -9,7 +9,12 @@ use Illuminate\Support\Facades\DB;
  */
 class UserTableSeeder extends Seeder
 {
-    public function run()
+	/**
+	 * Run the database seed.
+	 *
+	 * @return void
+	 */
+	public function run()
     {
         if (DB::connection()->getDriverName() == 'mysql') {
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
@@ -28,7 +33,7 @@ class UserTableSeeder extends Seeder
         $users = [
             [
                 'name'              => 'Admin Istrator',
-                'email'             => 'admin@jtmds.cn',
+                'email'             => 'admin@admin.com',
                 'password'          => bcrypt('1234'),
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),
                 'confirmed'         => true,
@@ -37,7 +42,7 @@ class UserTableSeeder extends Seeder
             ],
             [
                 'name'              => 'Backend User',
-                'email'             => 'backend@jtmds.cn',
+                'email'             => 'executive@executive.com',
                 'password'          => bcrypt('1234'),
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),
                 'confirmed'         => true,
@@ -46,7 +51,7 @@ class UserTableSeeder extends Seeder
             ],
             [
                 'name'              => 'Default User',
-                'email'             => 'user@jtmds.cn',
+                'email'             => 'user@user.com',
                 'password'          => bcrypt('1234'),
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),
                 'confirmed'         => true,

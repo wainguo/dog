@@ -1,8 +1,10 @@
-/vendor
 /node_modules
 /public/storage
-Homestead.yaml
+/storage/*.key
+/vendor
+.idea
 Homestead.json
+Homestead.yaml
 .env
 
 /app/Http/Controllers/Frontend.bak
@@ -12,6 +14,8 @@ Homestead.json
 /public/css/frontend.css.map
 /public/css/backend.css
 /public/css/backend.css.map
+/public/css/rtl.css
+/public/css/rtl.css.map
 /public/js/frontend.js
 /public/js/frontend.js.map
 /public/js/backend.js
@@ -21,7 +25,6 @@ Homestead.json
 Thumbs.db
 *.sublime-project
 *.sublime-workspace
-.idea
 .project
 _ide_helper.php
 composer.phar

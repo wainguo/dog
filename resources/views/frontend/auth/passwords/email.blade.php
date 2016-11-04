@@ -20,7 +20,7 @@
                             </div>
                         @endif
 
-                        {{ Form::open(['route' => 'auth.password.email', 'class' => 'ui large form']) }}
+                        {{ Form::open(['route' => 'frontend.auth.password.email', 'class' => 'ui large form']) }}
 
                         <div class="inline field">
                             {{ Form::label('email', trans('validation.attributes.frontend.email'), ['class' => '']) }}
