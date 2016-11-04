@@ -32,17 +32,17 @@ class AppServiceProvider extends ServiceProvider
 		/**
 		 * setLocale to use Carbon source locales. Enables diffForHumans() localized
 		 */
-		Carbon::setLocale(config('app.locale'));
+		Carbon::setLocale('zh');
 
 		/**
 		 * Set the session variable for whether or not the app is using RTL support
 		 * For use in the blade directive in BladeServiceProvider
 		 */
-		if (config('locale.languages')[config('app.locale')][2]) {
-			session(['lang-rtl' => true]);
-		} else {
-			session()->forget('lang-rtl');
-		}
+//		if (config('locale.languages')[config('app.locale')][2]) {
+//			session(['lang-rtl' => true]);
+//		} else {
+//			session()->forget('lang-rtl');
+//		}
 
 		// Force SSL in production
 		if ($this->app->environment() == 'production') {

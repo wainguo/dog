@@ -17,8 +17,6 @@
     <div class="ui divider"></div>
 
     <div id="jtmdsChannel" class="container">
-        <iframe src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetAdHtml&ID=OneJS&OneJS=1&banner_type=setandforget&campaigns=holsetforget2016&placement=assoc_banner_placement_default&region=US&marketplace=amazon&ad_type=banner&height=90&width=728&f=ifr&linkID=1bdf0c25002d488c444da9f7b4106f04&t=jtmdscn-20&tracking_id=jtmdscn-20" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
-
         <div class="ui divided items">
             @foreach ($articles as $article)
                 <div class="item">

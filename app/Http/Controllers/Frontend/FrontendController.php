@@ -131,6 +131,11 @@ class FrontendController extends Controller
         return view('frontend.astore');
     }
 
+    public function search()
+    {
+        return view('frontend.static.search');
+    }
+
     //about
     public function about()
     {

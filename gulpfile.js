@@ -70,7 +70,8 @@ elixir((mix) => {
      * Combine pre-processed frontend CSS files
      */
     .styles([
-        'frontend/app.css'
+        'frontend/semantic.min.css',
+        'frontend/sweetalert.css'
     ], 'public/css/frontend.css')
 
     /**
