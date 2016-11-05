@@ -6,7 +6,7 @@
 @section('content')
     <div id="jtmdsArticle">
         @include('includes.partials.messages')
-        <form action="{{ url('/article/save-edit') }}" method="post" class="ui mini form">
+        <form action="{{ url('/article/save') }}" method="patch" class="ui mini form">
             {{ csrf_field() }}
             <input type="hidden" name="article_id" v-model="article_id" v-bind:value="{{ $article->id }}">
             <div class="ui stackable two column grid">

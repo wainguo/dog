@@ -52,7 +52,27 @@ class ArticleController extends Controller
 //        return redirect()->back()->withInput();
 //    }
 
-    public function getEdit($id = null)
+    public function show($id)
+    {
+        $article = Article::find($id);
+        if(empty($article)){
+            return view('errors.errorpage', ['error_message' => '您要查看的文章没有找到!']);
+        }
+        $article->view_count++;
+        $article->save();
+
+        $relatedArticles = Article::ofChannel($article->channel_id)
+            ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();
+
+        return view('frontend.article.detail', [
+            'article' => $article,
+            'relatedArticles' => $relatedArticles
+        ]);
+    }
+
+    public function edit($id = null)
     {
         if(!empty($id)) {
             $article = Article::find($id);
@@ -79,7 +99,7 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function getBaoliao($id = null)
+    public function baoliao($id = null)
     {
         if(!empty($id)) {
             $article = Article::find($id);
@@ -107,7 +127,7 @@ class ArticleController extends Controller
     }
 
     //  编辑文章的保存
-    public function postSaveEdit(Request $request)
+    public function save(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',

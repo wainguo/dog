@@ -18,6 +18,9 @@ Route::get('/news', 'FrontendController@news')->name('frontend.news');
 Route::get('/post', 'FrontendController@post')->name('frontend.post');
 Route::get('/p/{id}', 'FrontendController@article')->name('frontend.article');
 
+Route::get('/article/baoliao', 'ArticleController@baoliao')->name('article.baoliao');
+Route::get('/article/save', 'ArticleController@save')->name('article.save');
+
 /**
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'
