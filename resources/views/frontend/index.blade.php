@@ -24,8 +24,8 @@
         </div>
         <div class="four wide column" id="slideAside">
             @foreach($showcaseArticles as $showcaseArticle)
-                <a href="{{ url('/p/'.$showcaseArticle->id) }}" target="_blank">
-                    <img src="{{ url($showcaseArticle->cover) }}">
+                <a href="{{ $showcaseArticle->url }}" target="_blank">
+                    <img src="{{ url($showcaseArticle->cover) }}" alt="{{ $showcaseArticle->title }}">
                 </a>
             @endforeach
         </div>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="extra">
                             @if(isset($article->url))
-                                <a href="{{$article->url}}" class="mini ui right floated red button">直达链接</a>
+                                <a href="{{$article->url}}" target="_blank" class="mini ui right floated red button">直达链接</a>
                             @endif
                             @if(isset($article->mall->mall_url))
                                 <a href="{{$article->mall->mall_url}}"  class="ui orange label">{{$article->mall->mall_name}}</a>
@@ -108,7 +108,7 @@
                         <p v-text="moreArticle.excerpt"></p>
                     </div>
                     <div class="extra">
-                        <a v-bind:href="moreArticle.url" class="mini ui right floated red button">直达链接</a>
+                        <a v-bind:href="moreArticle.url" target="_blank" class="mini ui right floated red button">直达链接</a>
                         <a v-bind:href="moreArticle.mall.mall_url"  class="ui orange label" v-if="moreArticle.mall">
                             <span v-text="moreArticle.mall.mall_name"></span>
                         </a>

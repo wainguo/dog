@@ -14,8 +14,8 @@ class Slider extends Model
         return $query->where('status', 1);
     }
 
-    public function scopeDisplay($query, $display)
+    public function scopePosition($query, $position)
     {
-        return $query->where('display', $display);
+        return $query->where('position', $position);
     }
 }
