@@ -17,7 +17,7 @@ var vm = new Vue({
         article_tags: [],           //文章关联的标签
         tags: []  //常用标签
     },
-    ready: function() {
+    created: function() {
         var self = this;
 
         //获取所有的分类目录

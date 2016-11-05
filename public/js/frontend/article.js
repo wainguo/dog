@@ -16,7 +16,7 @@ var vm = new Vue({
         content:""
     },
 
-    ready: function() {
+    created: function() {
         var self = this;
 
         //self.articleId = $('#articleId').val();
