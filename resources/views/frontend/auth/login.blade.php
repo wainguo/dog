@@ -9,7 +9,7 @@
                         {{ trans('labels.frontend.auth.login_box_title') }}
                     </div>
                 </h2>
-                {{ Form::open(['route' => 'auth.login', 'class' => 'ui large form']) }}
+                {{ Form::open(['route' => 'frontend.auth.login', 'class' => 'ui large form']) }}
                     <div class="ui stacked">
                         <div class="field {{ $errors->has('email') ? 'error' : '' }}">
                             <div class="ui left icon input">
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="seven wide field">
-                                {{ link_to('password/reset', trans('labels.frontend.passwords.forgot_password')) }}
+                                {{ link_to_route('frontend.auth.password.reset', trans('labels.frontend.passwords.forgot_password')) }}
                             </div>
                         </div>
 

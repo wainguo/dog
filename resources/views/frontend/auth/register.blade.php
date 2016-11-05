@@ -10,7 +10,7 @@
                     </div>
                 </h2>
                 {{--<form class="ui large form" method="POST" action="{{ url('/register') }}">--}}
-                {{ Form::open(['route' => 'auth.register', 'class' => 'ui large form']) }}
+                {{ Form::open(['route' => 'frontend.auth.register', 'class' => 'ui large form']) }}
                     {{--{!! csrf_field() !!}--}}
                     <div class="ui stacked">
                         <div class="field {{ $errors->has('name') ? 'error' : '' }}">

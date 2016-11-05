@@ -153,6 +153,8 @@ return [
                 'url' => '链接',
                 'cover' => '图片',
                 'sort' => '排序',
+                'slideshow' => '幻灯',
+                'showcase' => '橱窗',
             ]
         ],
 

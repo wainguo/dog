@@ -33,6 +33,18 @@
                         {{ Form::text('url', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.slider.url')]) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
+                <div class="form-group">
+                    {{ Form::label('url', trans('validation.attributes.backend.slider.slideshow'), ['class' => 'col-lg-2 control-label']) }}
+                    <div class="col-lg-10">
+                        {{ Form::radio("position", "slideshow", $slider->position=="slideshow") }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+                <div class="form-group">
+                    {{ Form::label('url', trans('validation.attributes.backend.slider.showcase'), ['class' => 'col-lg-2 control-label']) }}
+                    <div class="col-lg-10">
+                        {{ Form::radio("position", "showcase", $slider->position=="showcase") }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
 
                 <div class="form-group">
                     {{--<label for="cover">封面图片</label>--}}

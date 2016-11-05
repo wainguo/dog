@@ -19,11 +19,12 @@
         </div>
         <div class="right menu">
             {{--@if (Auth::guest())--}}
-            @if (access()->guest())
+            {{--@if (access()->guest())--}}
+            @if (! $logged_in_user)
                 {{--<div class="item"><a href="{{ url('/login') }}">登录</a></div>--}}
                 {{--<div class="item"><a href="{{ url('/register') }}">注册</a></div>--}}
-                <div class="item">{{ link_to('login', trans('navs.frontend.login')) }}</div>
-                <div class="item">{{ link_to('register', trans('navs.frontend.register')) }}</div>
+                <div class="item">{{ link_to_route('frontend.auth.login', trans('navs.frontend.login')) }}</div>
+                <div class="item">{{ link_to_route('frontend.auth.register', trans('navs.frontend.register')) }}</div>
             @else
                 {{--<div class="login item link">登录</div>--}}
 
@@ -36,15 +37,16 @@
                     <div class="menu">
                         {{ link_to_route('frontend.user.dashboard', trans('navs.frontend.dashboard'), [], ['class' => 'item']) }}
 
-                        @if (access()->user()->canChangePassword())
-                            {{ link_to_route('auth.password.change', trans('navs.frontend.user.change_password'), [], ['class' => 'item']) }}
-                        @endif
+                        {{--@if (access()->user()->canChangePassword())--}}
+                            {{--{{ link_to_route('auth.password.change', trans('navs.frontend.user.change_password'), [], ['class' => 'item']) }}--}}
+                        {{--@endif--}}
 
                         @permission('view-backend')
                             {{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration'), [], ['class' => 'item']) }}
                         @endauth
 
-                        {{ link_to_route('auth.logout', trans('navs.general.logout'), [], ['class' => 'item']) }}
+                        {{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => 'item']) }}
+                        {{ link_to_route('frontend.auth.logout', trans('navs.general.logout'), [], ['class' => 'item']) }}
                     </div>
                 </div>
             @endif

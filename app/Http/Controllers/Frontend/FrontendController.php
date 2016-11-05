@@ -29,10 +29,11 @@ class FrontendController extends Controller
 
         //slide show 6 items
 //        $homeslideArticles = Article::block('homeslide')->take(6)->get();
-        $homeslideArticles = Slider::active()->take(6)->get();
+        $homeslideArticles = Slider::active()->position('slideshow')->take(6)->get();
+        $showcaseArticles = Slider::active()->position('showcase')->take(3)->get();
 
         $featuredArticles = Article::block('featured')->take(6)->get();
-        $showcaseArticles = Article::block('showcase')->take(3)->get();
+//        $showcaseArticles = Article::block('showcase')->take(3)->get();
 
         //first page articles
         $articles = Article::status('publish')
@@ -129,6 +130,11 @@ class FrontendController extends Controller
     public function astore()
     {
         return view('frontend.astore');
+    }
+
+    public function search()
+    {
+        return view('frontend.static.search');
     }
 
     //about

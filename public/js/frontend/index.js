@@ -10,7 +10,7 @@ var vm = new Vue({
         lastPage: 9999,
         moreArticles: []
     },
-    ready: function() {
+    created: function() {
         var self = this;
         // slide show
         $(".single-item").slick({
@@ -97,20 +97,20 @@ var vm = new Vue({
                     var jtmdsResponse = response.data;
                     if(jtmdsResponse.errorCode == 0) {
                         var pagedArticles = jtmdsResponse.content;
-                        this.$set('lastPage', pagedArticles.last_page);
-                        this.$set('currentPage', pagedArticles.current_page);
+                        self.lastPage = pagedArticles.last_page;
+                        self.currentPage = pagedArticles.current_page;
                         if(Array.isArray(pagedArticles.data)){
                             pagedArticles.data.forEach(function(obj){
                                 self.moreArticles.push(obj);
                             });
                         }
                     }
-                    this.$set('moreArticleIsLoading', false);
+                    self.moreArticleIsLoading = false;
                     $('.ui.sticky').sticky('refresh');
                 },
                 function(response) {
                     console.log(response);
-                    this.$set('moreArticleIsLoading', false);
+                    self.moreArticleIsLoading = false;
                 }
             )
         }

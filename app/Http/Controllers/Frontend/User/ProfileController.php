@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
+use App\Repositories\Frontend\Access\User\UserRepository;
 
 /**
  * Class ProfileController
@@ -17,15 +18,18 @@ use Intervention\Image\Facades\Image;
  */
 class ProfileController extends Controller
 {
+    /**
+     * @var UserRepository
+     */
+    protected $user;
 
     protected $allowedExtensions = ["png", "jpg", "jpeg", "gif"];
     protected $imageUploadPath = '';
     protected $imageUploadUrl = '';
 
-    public function __construct()
+    public function __construct(UserRepository $user)
     {
-//        $this->middleware('auth');
-
+        $this->user = $user;
         $this->imageUploadPath = storage_path('app/public/avatar');
         $this->imageUploadUrl = url(Storage::url('avatar'));
     }
@@ -44,9 +48,9 @@ class ProfileController extends Controller
      * @param  UpdateProfileRequest $request
      * @return mixed
      */
-    public function update(UserRepositoryContract $user, UpdateProfileRequest $request)
+    public function update(UpdateProfileRequest $request)
     {
-        $user->updateProfile(access()->id(), $request->all());
+        $this->user->updateProfile(access()->id(), $request->all());
         return redirect()->route('frontend.user.dashboard')->withFlashSuccess(trans('strings.frontend.user.profile_updated'));
     }
 

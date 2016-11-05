@@ -54,6 +54,7 @@ class EloquentSliderRepository implements SliderRepositoryContract
 		DB::transaction(function() use ($input) {
 			$slider       = new Slider();
             $slider->title = $input['title'];
+            $slider->position = $input['position'];
             $slider->cover = $input['cover'];
             $slider->url = $input['url'];
             $slider->sort = isset($input['sort']) && strlen($input['sort']) > 0 && is_numeric($input['sort']) ? (int)$input['sort'] : 0;
@@ -96,6 +97,7 @@ class EloquentSliderRepository implements SliderRepositoryContract
 //        }
 
         $slider->title = $input['title'];
+        $slider->position = $input['position'];
         $slider->cover = $input['cover'];
         $slider->url = $input['url'];
         $slider->sort = isset($input['sort']) && strlen($input['sort']) > 0 && is_numeric($input['sort']) ? (int)$input['sort'] : 0;

@@ -14,7 +14,7 @@
                     </div>
                 @endif
 
-                {{ Form::open(['route' => 'auth.password.reset', 'class' => 'ui large form']) }}
+                {{ Form::open(['route' => 'frontend.auth.password.reset', 'class' => 'ui large form']) }}
 
                     <input type="hidden" name="token" value="{{ $token }}">
                     <input type="hidden" name="email" value="{{ $email }}">
@@ -23,7 +23,9 @@
                         <div class="field {{ $errors->has('email') ? 'error' : '' }}">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input type="text" name="email" value="{{ $email or old('email') }}" placeholder="登录账号E-mail">
+                                <p class="">{{ $email }}</p>
+{{--                                <input type="text" name="email" value="{{ $email or old('email') }}" placeholder="登录账号E-mail">--}}
+                                {{ Form::input('hidden', 'email', $email, ['placeholder' => trans('validation.attributes.frontend.email')]) }}
                             </div>
                             {{--@if ($errors->has('email'))--}}
                                 {{--<div class="ui label">--}}
