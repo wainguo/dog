@@ -25,11 +25,13 @@
     {!! Html::style('vendor/materialize/css/materialize.min.css') !!}
     @yield('after-styles-end')
 
-    @if(env('APP_DEBUG', false)=="debug")
-        {!! Html::style('css/style.css') !!}
-    @else
-        {{ Html::style(elixir('css/style.css')) }}
-    @endif
+    {!! Html::style('css/style.css') !!}
+
+    {{--@if(env('APP_DEBUG', false)=="debug")--}}
+        {{--{!! Html::style('css/style.css') !!}--}}
+    {{--@else--}}
+        {{--{{ Html::style(elixir('css/style.css')) }}--}}
+    {{--@endif--}}
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
 </head>
 
