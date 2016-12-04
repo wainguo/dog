@@ -53,16 +53,18 @@ Route::group(['middleware' => 'auth'], function () {
 Route::resource('article', 'ArticleController');
 Route::resource('tool', 'JtmdsToolController');
 
+Route::post('/article/save-comment', 'ArticleController@postSaveComment')->name('article.comment');
+
 Route::post('api/upload/image', 'Api\UploadController@postImage');
 Route::post('api/upload/slider', 'Api\UploadController@postSlider');
 Route::post('api/post/add-category', 'Api\AuthRequiredApiController@postAddCategory');
 Route::post('api/post/add-tags', 'Api\AuthRequiredApiController@postAddTags');
 
 Route::get('api/get/more-articles', 'Api\PublicApiController@getMoreArticles');
-Route::post('api/get/article/{id}', 'Api\PublicApiController@getArticle');
-Route::post('api/get/article/comments', 'Api\PublicApiController@getComments');
-Route::post('api/get/article/categories', 'Api\PublicApiController@getCategories');
-Route::post('api/get/article/properties', 'Api\PublicApiController@getProperties');
+Route::get('api/get/article/{id}', 'Api\PublicApiController@getArticle');
+Route::get('api/get/comments', 'Api\PublicApiController@getComments');
+Route::get('api/get/article-categories', 'Api\PublicApiController@getCategories');
+Route::get('api/get/article-properties', 'Api\PublicApiController@getProperties');
 //Route::group(['namespace' => 'User', 'as' => 'user.'], function() {
 //    Route::get('api/get', 'Api\PublicApiController@edit')->name('profile.edit');
 //});

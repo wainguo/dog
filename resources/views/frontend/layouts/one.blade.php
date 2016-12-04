@@ -1,18 +1,21 @@
 @include('frontend.includes.header')
 
-<div class="ui container">
-    <div class="ui grid">
-        <div class="sixteen wide column" id="centerPanel">
-            @include('includes.partials.messages')
-            @yield('content')
+<div id="jtmdsContent">
+    @include('frontend.includes.navbar')
+    <div class="container">
+        <div class="row">
+            <div class="col s12" id="centerPanel">
+                {{--@include('includes.partials.messages')--}}
+                @yield('content')
+            </div>
         </div>
     </div>
 </div>
 
 <!-- Scripts -->
-{{--{{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js') }}--}}
-{{--<script>window.jQuery || document.write('<script src="{{asset('js/vendor/jquery/jquery-2.1.4.min.js')}}"><\/script>')</script>--}}
-{!! Html::script('js/vendor/jquery/jquery-2.1.4.min.js') !!}
+{{ HTML::script('http://libs.baidu.com/jquery/2.1.4/jquery.min.js') }}
+<script>window.jQuery || document.write('<script src="{{asset('js/vendor/jquery/jquery-2.1.4.min.js')}}"><\/script>')</script>
+{!! Html::script('vendor/materialize/js/materialize.min.js') !!}
 {!! Html::script('js/vendor/vue/vue.min.js') !!}
 {!! Html::script('js/vendor/vue/vue-resource.min.js') !!}
 
@@ -20,30 +23,25 @@
 {!! Html::script(elixir('js/frontend.js')) !!}
 <script>
     $(document).ready(function () {
-        // fix main menu to page
-        $('#headerMenu.menu').visibility({
-            type: 'fixed',
-            zIndex: '1000'
-        });
-        // lazy load images
-        $('.image').visibility({
-            type: 'image',
-            transition: 'fade in',
-            duration: 500
-        });
-        // show dropdown on hover
-        $('.menu .ui.dropdown').dropdown({
-            on: 'hover'
+        $('#jtmdsNavbar').pushpin({
+            top: $('#jtmdsContent').offset().top,
+            bottom: Infinity
         });
 
-// login modal
-//        $('.ui.login.modal').modal({
-//            blurring: true
-//        }).modal('attach events', '.login.item', 'show');
+        $('.pushpin-item').each(function () {
+            var $this = $(this);
+            var $target = $('#' + $(this).attr('data-target'));
+            $this.pushpin({
+                top: $target.offset().top,
+//                top: $this.offset().top,
+                bottom: Infinity
+//                bottom: $target.offset().top + $target.outerHeight() - $this.height()
+            });
+        });
     });
 </script>
 
 @yield('after-scripts-end')
 
-        {{--@include('includes.partials.ga')--}}
+@include('frontend.includes.tongji')
 @include('frontend.includes.footer')

@@ -1,14 +1,13 @@
 @extends('frontend.layouts.two')
 
 @section('content')
-    <div class="container">
-        <div class="ui breadcrumb">
-            <div class="section"> 当前位置：</div>
-            <a class="section" href="{{url('')}}">首页</a>
-            <i class="right angle icon divider"></i>
-            <div class="section">搜索</div>
-        </div>
+    <div class="breadcrumb">
+        <span class="section"> 当前位置：</span>
+        <a class="section" href="{{url('')}}">首页</a>
+        <span>#</span>
+        <span class="section">搜索</span>
     </div>
+    <div class="divider"></div>
 
     <div id="jd">
         <script type="text/javascript">var jd_union_pid="524905187";var jd_union_euid="";</script><script type="text/javascript" src="http://ads.union.jd.com/static/js/union.js"></script>

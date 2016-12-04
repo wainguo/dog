@@ -40,6 +40,10 @@ return [
             'management' => '幻灯管理',
         ],
 
+        'article' => [
+            'management' => '文章管理',
+        ],
+
         'log-viewer' => [
             'main' => '日志查看',
             'dashboard' => '仪表盘',

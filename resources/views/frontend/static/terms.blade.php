@@ -1,16 +1,14 @@
 @extends('frontend.layouts.one')
 
 @section('content')
-    <div class="container">
-        <div class="ui breadcrumb">
-            <div class="section"> 当前位置：</div>
-            <a class="section" href="{{url('')}}">首页</a>
-            <i class="right angle icon divider"></i>
-            <div class="section">用户使用协议</div>
-        </div>
+    <div class="breadcrumb">
+        <span class="section"> 当前位置：</span>
+        <a class="section" href="{{url('')}}">首页</a>
+        <span>#</span>
+        <span class="section">用户使用协议</span>
     </div>
-
-    <div style="padding: 20px;">
+    <div class="divider"></div>
+    <div>
         <h3 class="ui dividing header">今天买点啥用户使用协议</h3>
 
         <div class="description">

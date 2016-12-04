@@ -155,6 +155,17 @@ return [
                 'sort' => '排序',
                 'slideshow' => '幻灯',
                 'showcase' => '橱窗',
+            ],
+            'article' => [
+                'title' => '标题',
+                'subtitle' => '子标题',
+                'url' => '链接地址',
+                'content' => '文章内容',
+                'cover' => '图片',
+                'category' => '分类目录',
+                'tag' => '标签',
+                'channel' => '频道',
+//                'showcase' => '橱窗',
             ]
         ],
 

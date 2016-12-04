@@ -3,7 +3,7 @@
  */
 
 var vm = new Vue({
-    el: '#jtmdsBody',
+    el: '#articleList',
     data: {
         moreArticleIsLoading: false,
         currentPage: 1,
@@ -25,62 +25,77 @@ var vm = new Vue({
             slidesToScroll: 1
         });
 
-        $('#jtmdsHome').visibility({
-            once: false,
-            // update size when new content loads
-            observeChanges: true,
+        $(window).scroll(this.loadMoreArticles);
+        // $(window).scroll(function() {
+        //     // End of the document reached?
+        //     if ($(document).height() - $(window).height() == $(window).scrollTop()) {
+        //         $('#loading').show();
+        //
+        //         $.ajax({
+        //             url: 'get-post.php',
+        //             dataType: 'html',
+        //             success: function(html) {
+        //                 $('#posts').append(html);
+        //                 $('#loading').hide();
+        //             }
+        //         });
+        //     }
+        // });
 
-            // load content on bottom edge visible
-            onBottomVisible: function() {
-                // loads more articles
-                self.loadMoreArticles();
-            }
-        });
+        // var options = [
+        //     {
+        //         selector: '.end-of-list', offset: 50, callback: function(el) {
+        //             Materialize.toast("This is our ScrollFire Demo!", 1500 );
+        //             self.loadMoreArticles();
+        //         }
+        //     }
+        // ];
+        // Materialize.scrollFire(options);
 
-        // sticky content to centerPanel
-        $('.ui.sticky').sticky({
-            offset : 50,
-            // pushing: false,
-            context: '#jtmdsHome'
-        });
 
-        $('.ui.collapse .title').first().addClass('active');
-        $('.ui.collapse .items').first().addClass('active');
-        $('.ui.collapse .title').mouseenter( function(){
+        $('.hollapsible .title').first().addClass('active');
+        $('.hollapsible .items').first().addClass('active');
+        $('.hollapsible .title').mouseenter( function(){
             $(this).siblings().filter('.active').removeClass('active');
             $(this).addClass('active');
             $(this).next().addClass('active');
         });
 
-        $('.browse.item').popup({
-            popup     : '.admission.popup',
-            hoverable : true,
-            position  : 'bottom left',
-            delay     : {
-                show: 300,
-                hide: 800
-            }
-        });
-
-        var $dropdownItem = $('.container .menu .dropdown .item'),
-            $menuItem = $('.menu a.item, .menu .link.item').not($dropdownItem),
-        // alias
-            handler = {
-                activate: function() {
-                    if(!$(this).hasClass('dropdown browse')) {
-                        $(this).addClass('active')
-                            .closest('.ui.menu')
-                            .find('.item')
-                            .not($(this))
-                            .removeClass('active');
-                    }
-                }
-            };
-        $menuItem.on('click', handler.activate);
+        // $('.browse.item').popup({
+        //     popup     : '.admission.popup',
+        //     hoverable : true,
+        //     position  : 'bottom left',
+        //     delay     : {
+        //         show: 300,
+        //         hide: 800
+        //     }
+        // });
+        //
+        // var $dropdownItem = $('.container .menu .dropdown .item'),
+        //     $menuItem = $('.menu a.item, .menu .link.item').not($dropdownItem),
+        // // alias
+        //     handler = {
+        //         activate: function() {
+        //             if(!$(this).hasClass('dropdown browse')) {
+        //                 $(this).addClass('active')
+        //                     .closest('.ui.menu')
+        //                     .find('.item')
+        //                     .not($(this))
+        //                     .removeClass('active');
+        //             }
+        //         }
+        //     };
+        // $menuItem.on('click', handler.activate);
     },
 
     methods: {
         loadMoreArticles: function() {
+            console.log('load');
+            if ($(document).height() - $(window).height() != $(window).scrollTop()) {
+                return;
+            }
+            console.log('load show');
+            // $('#loading').show();
             var self = this;
             if(this.currentPage+1 > this.lastPage) {
                 console.log('aready at the last page');
@@ -103,10 +118,12 @@ var vm = new Vue({
                             pagedArticles.data.forEach(function(obj){
                                 self.moreArticles.push(obj);
                             });
+
+                            console.log(self.moreArticles);
                         }
                     }
                     self.moreArticleIsLoading = false;
-                    $('.ui.sticky').sticky('refresh');
+                    // $('.ui.sticky').sticky('refresh');
                 },
                 function(response) {
                     console.log(response);

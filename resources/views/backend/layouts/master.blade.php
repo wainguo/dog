@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="_token" content="{{ csrf_token() }}" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@yield('title', app_name())</title>
 
@@ -62,8 +62,10 @@
         </div><!-- ./wrapper -->
 
         <!-- JavaScripts -->
-        {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js') }}
-        <script>window.jQuery || document.write('<script src="{{asset('js/vendor/jquery/jquery-2.1.4.min.js')}}"><\/script>')</script>
+{{--        {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js') }}--}}
+        {{--<script>window.jQuery || document.write('<script src="{{asset('js/vendor/jquery/jquery-2.1.4.min.js')}}"><\/script>')</script>--}}
+
+        {{ Html::script('js/vendor/jquery/jquery-2.1.4.min.js') }}
         {{ Html::script('js/vendor/bootstrap/bootstrap.min.js') }}
 
         @yield('before-scripts-end')

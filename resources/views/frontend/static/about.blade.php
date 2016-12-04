@@ -1,14 +1,13 @@
-@extends('frontend.layouts.two')
+@extends('frontend.layouts.one')
 
 @section('content')
-    <div class="container">
-        <div class="ui breadcrumb">
-            <div class="section"> 当前位置：</div>
-            <a class="section" href="{{url('')}}">首页</a>
-            <i class="right angle icon divider"></i>
-            <div class="section">关于我们</div>
-        </div>
+    <div class="breadcrumb">
+        <span class="section"> 当前位置：</span>
+        <a class="section" href="{{url('')}}">首页</a>
+        <span>#</span>
+        <span class="section">关于我们</span>
     </div>
+    <div class="divider"></div>
 
     <div style="padding: 20px;">
         <h3 class="ui dividing header">关于我们</h3>

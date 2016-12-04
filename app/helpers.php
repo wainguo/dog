@@ -4,6 +4,8 @@
  * Global helpers file with misc functions
  */
 
+use Illuminate\Support\Facades\Storage;
+
 if (! function_exists('app_name')) {
 	/**
 	 * Helper to grab the application name
@@ -80,4 +82,21 @@ if (! function_exists('getLanguageBlock')) {
 			return view($fallback, $data);
 		}
 	}
+}
+
+/**
+ *  guoshengxing added
+ */
+if (! function_exists('getUploadPath')) {
+    function upload_path()
+    {
+        return storage_path('app/public');
+    }
+}
+
+if (! function_exists('getUploadUrl')) {
+    function upload_url($name = '')
+    {
+        return url(Storage::url($name));
+    }
 }

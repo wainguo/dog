@@ -12,7 +12,7 @@
                     </div>
                     <div class="content">
                         <a class="header" href="{{ url('/p/'.$article->id) }}">
-                            {{ $article->title }}<span style="color:#d62222">{{ $article->description }}</span>
+                            {{ $article->title }}<span style="color:#d62222">{{ $article->subtitle }}</span>
                         </a>
                         <div class="meta">
                             <span class="right floated">{{ $article->created_at }}</span>

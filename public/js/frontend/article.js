@@ -3,7 +3,7 @@
  */
 
 var vm = new Vue({
-    el: '#jtmdsBody',
+    el: '#jtmdsArticle',
 
     data: {
         toast_message: '',
@@ -11,7 +11,7 @@ var vm = new Vue({
         currentPage: 0,
         lastPage: 999,
         comments: [],
-        article_id: 0,
+        article_id: 4,
         parent_id: 0,
         content:""
     },
@@ -19,34 +19,17 @@ var vm = new Vue({
     created: function() {
         var self = this;
 
-        //self.articleId = $('#articleId').val();
+        // self.articleId = $('#articleId').val();
+
         if($('#comments')){
             self.loadMoreComments();
 
-            $('#jtmdsArticle').visibility({
-                once: false,
-                // update size when new content loads
-                observeChanges: true,
-
-                // load content on bottom edge visible
-                onBottomVisible: function() {
-                    // loads more articles
-                    self.loadMoreComments();
-                }
-            });
+            $(window).scroll(this.loadMoreComments);
         }
 
-        // sticky content to centerPanel
-        $('.ui.sticky').sticky({
-            offset : 50,
-            // pushing: false,
-            context: '#centerPanel'
-        });
-
-        $('.ui.collapse .title').first().addClass('active');
-        $('.ui.collapse .items').first().addClass('active');
-
-        $('.ui.collapse .title').mouseenter( function(){
+        $('.hollapsible .title').first().addClass('active');
+        $('.hollapsible .items').first().addClass('active');
+        $('.hollapsible .title').mouseenter( function(){
             $(this).siblings().filter('.active').removeClass('active');
             $(this).addClass('active');
             $(this).next().addClass('active');
@@ -60,27 +43,29 @@ var vm = new Vue({
 
     methods: {
         loadMoreComments: function() {
+            if ($(document).height() - $(window).height() != $(window).scrollTop()) {
+                return;
+            }
+
             var self = this;
-            if(this.currentPage+1 > this.lastPage) {
+            if(self.currentPage+1 > self.lastPage) {
                 console.log('aready at the last page');
                 return;
             }
-            if(this.moreCommentIsLoading) {
+            if(self.moreCommentIsLoading) {
                 console.log('loading');
                 return;
             }
             self.moreCommentIsLoading = true;
             var toPage = this.currentPage + 1;
-            this.$http.get('/api/get/comments?article_id='+this.article_id+'&page='+toPage).then(
+            self.$http.get('/api/get/comments?article_id='+this.article_id+'&page='+toPage).then(
                 function(response) {
                     var jtmdsResponse = response.data;
                     if(jtmdsResponse.errorCode == 0) {
 
                         var pagedComments = jtmdsResponse.content;
-                        //self.lastPage = pagedComments.last_page;
-                        //self.currentPage = pagedComments.current_page;
-                        this.$set('lastPage', pagedComments.last_page);
-                        this.$set('currentPage', pagedComments.current_page);
+                        self.lastPage = pagedComments.last_page;
+                        self.currentPage = pagedComments.current_page;
                         if(Array.isArray(pagedComments.data)){
                             pagedComments.data.forEach(function(obj){
                                 console.log(self.comments);
@@ -89,13 +74,10 @@ var vm = new Vue({
                         }
                         console.log(self.comments);
                     }
-                    //self.moreCommentIsLoading = false;
-                    this.$set('moreCommentIsLoading', false);
-                    $('.ui.sticky').sticky('refresh');
+                    self.moreCommentIsLoading = false;
                 },
                 function(response) {
-                    //self.moreCommentIsLoading = false;
-                    this.$set('moreCommentIsLoading', false);
+                    self.moreCommentIsLoading = false;
                 }
             )
         },

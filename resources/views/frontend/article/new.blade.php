@@ -20,7 +20,7 @@
                 <div class="two fields">
                     <div class="six wide field">
                         {{--<label>价格描述</label>--}}
-                        <input type="text" name="description" placeholder="价格描述" value="{{ $article->description or ''}}">
+                        <input type="text" name="subtitle" placeholder="价格描述" value="{{ $article->subtitle or ''}}">
                     </div>
                     <div class="ten wide field">
                         {{--<label>直达链接</label>--}}

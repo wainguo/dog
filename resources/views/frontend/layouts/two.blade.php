@@ -1,59 +1,51 @@
 @include('frontend.includes.header')
 
-        {{--<div class="container">--}}
-            {{--@include('includes.partials.messages')--}}
-            {{--@yield('content')--}}
-        {{--</div>--}}
+<div id="jtmdsContent">
+    @include('frontend.includes.navbar')
+    <div class="container">
+        {{--@include('includes.partials.messages')--}}
+        <div class="row">
+            <div class="col s8" id="centerPanel">
+                @yield('content')
+            </div>
 
-<div class="ui container">
-    {{--@include('includes.partials.messages')--}}
-    <div class="ui stackable two column grid container" id="">
-        <div class="eleven wide column" id="centerPanel">
-            @yield('content')
+            <div class="col s4" id="rightPanel">
+                @yield('sidebar')
+            </div>
         </div>
-
-        <div class="five wide column ui rail" id="rightPanel">
-            @yield('sidebar')
-        </div>
-    </div>
-</div><!-- container -->
+    </div><!-- container -->
+</div>
 
 <!-- Scripts -->
-{{--{{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js') }}--}}
-{{--<script>window.jQuery || document.write('<script src="{{asset('js/vendor/jquery/jquery-2.1.4.min.js')}}"><\/script>')</script>--}}
-{!! Html::script('js/vendor/jquery/jquery-2.1.4.min.js') !!}
+{{ HTML::script('http://libs.baidu.com/jquery/2.1.4/jquery.min.js') }}
+<script>window.jQuery || document.write('<script src="{{asset('js/vendor/jquery/jquery-2.1.4.min.js')}}"><\/script>')</script>
+{!! Html::script('vendor/materialize/js/materialize.min.js') !!}
 {!! Html::script('js/vendor/vue/vue.min.js') !!}
 {!! Html::script('js/vendor/vue/vue-resource.min.js') !!}
 
 @yield('before-scripts-end')
-{!! Html::script(elixir('js/frontend.js')) !!}
+{{--{!! Html::script(elixir('js/frontend.js')) !!}--}}
 <script>
     $(document).ready(function () {
-        // fix main menu to page
-        $('#headerMenu.menu').visibility({
-            type: 'fixed',
-            zIndex: '1000'
-        });
-        // lazy load images
-        $('.image').visibility({
-            type: 'image',
-            transition: 'fade in',
-            duration: 500
+        $('#jtmdsNavbar').pushpin({
+            top: $('#jtmdsContent').offset().top,
+            bottom: Infinity
         });
 
-        // show dropdown on hover
-        $('.menu .ui.dropdown').dropdown({
-            on: 'hover'
+        $('.pushpin-item').each(function () {
+            var $this = $(this);
+            var $target = $('#' + $(this).attr('data-target'));
+            $this.pushpin({
+                top: $target.offset().top,
+//                top: $this.offset().top,
+                bottom: Infinity
+//                bottom: $target.offset().top + $target.outerHeight() - $this.height()
+            });
         });
-
-// login modal
-//        $('.ui.login.modal').modal({
-//            blurring: true
-//        }).modal('attach events', '.login.item', 'show');
     });
 </script>
 
 @yield('after-scripts-end')
 
-        {{--@include('includes.partials.ga')--}}
+@include('frontend.includes.tongji')
 @include('frontend.includes.footer')

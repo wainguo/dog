@@ -19,7 +19,7 @@ class CreateArticleTable extends Migration
             $table->integer('channel_id');
             $table->integer('mall_id');
             $table->string('title', 255);
-            $table->string('description', 64);
+            $table->string('subtitle', 64);
             $table->longText('content');
             $table->string('excerpt', 255);
             $table->string('cover', 255);

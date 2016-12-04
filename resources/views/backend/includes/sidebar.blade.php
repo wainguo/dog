@@ -54,6 +54,13 @@
                 </a>
             </li>
 
+            <li class="{{ Active::pattern('admin/article/*') }}">
+                <a href="{{ route('admin.article.index') }}">
+                    <i class="fa fa-circle-o"></i>
+                    <span>{{ trans('menus.backend.article.management') }}</span>
+                </a>
+            </li>
+
             <li class="{{ Active::pattern('admin/log-viewer*') }} treeview">
                 <a href="#">
                     <i class="fa fa-list"></i>

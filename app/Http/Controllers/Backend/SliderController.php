@@ -65,6 +65,12 @@ class SliderController extends Controller
         return redirect()->route('admin.slider.index')->withFlashSuccess(trans('alerts.backend.slider.updated'));
     }
 
+    public function destroy(Slider $slider, Request $request)
+    {
+        $this->sliders->destroy($slider);
+        return redirect()->route('admin.slider.index')->withFlashSuccess(trans('alerts.backend.slider.deleted'));
+    }
+
     public function slider()
     {
 //        $sliders = Slider::

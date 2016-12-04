@@ -1,5 +1,8 @@
 <?php namespace App\Providers;
 
+use App\Models\Article\Article;
+use App\Repositories\Backend\Article\ArticleRepositoryContract;
+use App\Repositories\Backend\Article\EloquentArticleRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Backend\Slider\SliderRepositoryContract;
 use App\Repositories\Backend\Slider\EloquentSliderRepository;
@@ -18,5 +21,6 @@ class BackendServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bind(SliderRepositoryContract::class, EloquentSliderRepository::class);
+		$this->app->bind(ArticleRepositoryContract::class, EloquentArticleRepository::class);
 	}
 }

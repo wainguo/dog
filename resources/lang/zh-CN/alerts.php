@@ -33,6 +33,13 @@ return [
         'slider' => [
             'created' => '幻灯片创建成功。',
             'updated' => '幻灯片更新成功。',
+            'deleted' => '幻灯片删除成功。',
+        ],
+
+        'article' => [
+            'created' => '文章创建成功。',
+            'updated' => '文章更新成功。',
+            'deleted' => '文章删除成功。',
         ]
     ],
 ];

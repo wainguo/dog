@@ -27,14 +27,18 @@ elixir((mix) => {
         'node_modules/bootstrap-sass/assets/fonts/bootstrap',
         'public/build/fonts/bootstrap'
     )
-    //guoshengxing added
-    .copy(
-        'semantic/dist/themes',
-        'public/build/css/themes'
-    )
     .copy(
         'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
         'public/js/vendor/bootstrap'
+    )
+    //guoshengxing added
+    .copy(
+        'node_modules/bootstrap/dist/',
+        'public/vendor/bootstrap'
+    )
+    .copy(
+        'node_modules/materialize-css/dist/',
+        'public/vendor/materialize'
     )
     .copy(
         'node_modules/slick-carousel/slick',
@@ -55,6 +59,10 @@ elixir((mix) => {
     .copy(
         'semantic/dist/semantic.min.css',
         'resources/assets/css/frontend'
+    )
+    .copy(
+        'semantic/dist/themes',
+        'public/build/css/themes'
     )
     //add end
 
@@ -142,6 +150,7 @@ elixir((mix) => {
      * Apply version control
      */
     .version([
+        "public/css/style.css",
         "public/css/frontend.css",
         "public/js/frontend.js",
         "public/css/backend.css",

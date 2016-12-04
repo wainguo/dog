@@ -167,7 +167,7 @@ class ArticleController extends Controller
         $article->mall_id = $request->input('mall_id', 0);
         $article->type = $request->input('type', 'product');
         $article->content = $request->input('content');
-        $article->description = $request->input('description', '');
+        $article->subtitle = $request->input('subtitle', '');
         $article->url = $request->input('url', '');
         $article->excerpt = str_limit(strip_tags($article->content), 250);
         $result = $this->getAndSaveImageFromContent($article->content, $this->imageUploadPath, $this->imageUploadUrl);

@@ -1,83 +1,70 @@
 @extends('frontend.layouts.one')
 
 @section('content')
+    <div class="breadcrumb">
+        <span class="section"> 当前位置：</span>
+        <a class="section" href="{{url('')}}">首页</a>
+        <span>#</span>
+        <span class="section">{{ trans('labels.frontend.auth.register_box_title') }}</span>
+    </div>
     <div class="container">
-        <div class="ui middle aligned center aligned stackable grid">
-            <div class="six wide column">
-                <h2 class="ui header" style="margin-top: 50px;">
-                    <div class="content">
-                        {{ trans('labels.frontend.auth.register_box_title') }}
-                    </div>
-                </h2>
+        {{--<div class="divider"></div>--}}
+
+        @include('includes.partials.messages')
+        <div class="row">
+            <div class="col s6">
+                {{--<h2 style="margin-top: 50px;">--}}
+                    {{--<div class="content">--}}
+                        {{--{{ trans('labels.frontend.auth.register_box_title') }}--}}
+                    {{--</div>--}}
+                {{--</h2>--}}
                 {{--<form class="ui large form" method="POST" action="{{ url('/register') }}">--}}
-                {{ Form::open(['route' => 'frontend.auth.register', 'class' => 'ui large form']) }}
-                    {{--{!! csrf_field() !!}--}}
-                    <div class="ui stacked">
-                        <div class="field {{ $errors->has('name') ? 'error' : '' }}">
-                            <div class="ui left icon input">
-                                <i class="user icon"></i>
-                                {{--<input type="text" name="name" value="{{ old('name') }}" placeholder="昵称">--}}
-                                {{ Form::input('name', 'name', old('name'), ['placeholder' => trans('validation.attributes.frontend.name')]) }}
-                            </div>
-                            {{--@if ($errors->has('name'))--}}
-                                {{--<div class="ui label">--}}
-                                    {{--{{ $errors->first('name') }}--}}
-                                {{--</div>--}}
-                            {{--@endif--}}
+                {{ Form::open(['route' => 'frontend.auth.register', 'class' => 'form']) }}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="name" name="name" type="text" class="validate" value="{{old('name')}}">
+                            <label for="email">{{trans('validation.attributes.frontend.name')}}</label>
                         </div>
-                        <div class="field {{ $errors->has('email') ? 'error' : '' }}">
-                            <div class="ui left icon input">
-                                <i class="user icon"></i>
-                                {{--<input type="text" name="email" value="{{ old('email') }}" placeholder="登录账号E-mail">--}}
-                                {{ Form::input('email', 'email', old('email'), ['placeholder' => trans('validation.attributes.frontend.email')]) }}
-                            </div>
-                            {{--@if ($errors->has('email'))--}}
-                                {{--<div class="ui label">--}}
-                                    {{--{{ $errors->first('email') }}--}}
-                                {{--</div>--}}
-                            {{--@endif--}}
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" name="email" type="email" class="validate" value="{{old('email')}}">
+                            <label for="email">{{trans('validation.attributes.frontend.email')}}</label>
                         </div>
-                        <div class="field {{ $errors->has('password') ? 'error' : '' }}">
-                            <div class="ui left icon input">
-                                <i class="lock icon"></i>
-                                {{--<input type="password" name="password" placeholder="登录密码">--}}
-                                {{ Form::input('password', 'password', null, ['placeholder' => trans('validation.attributes.frontend.password')]) }}
-                            </div>
-                            {{--@if ($errors->has('password'))--}}
-                                {{--<div class="ui label">--}}
-                                    {{--{{ $errors->first('password') }}--}}
-                                {{--</div>--}}
-                            {{--@endif--}}
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" name="password" type="password" class="validate">
+                            {{--<label for="password">登录密码</label>--}}
+                            <label for="password">{{trans('validation.attributes.frontend.password')}}</label>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password_confirmation" name="password_confirmation" type="password" class="validate">
+                            {{--<label for="password">登录密码</label>--}}
+                            <label for="password_confirmation">{{trans('validation.attributes.frontend.password_confirmation')}}</label>
+                        </div>
+                    </div>
 
-                        <div class="field {{ $errors->has('password_confirmation') ? 'error' : '' }}">
-                            <div class="ui left icon input">
-                                <i class="lock icon"></i>
-                                {{--<input type="password" name="password_confirmation" placeholder="确认密码">--}}
-                                {{ Form::input('password', 'password_confirmation', null, ['placeholder' => trans('validation.attributes.frontend.password_confirmation')]) }}
-                            </div>
-                            {{--@if ($errors->has('password_confirmation'))--}}
-                                {{--<div class="ui pointing red basic label">--}}
-                                    {{--{{ $errors->first('password_confirmation') }}--}}
-                                {{--</div>--}}
-                            {{--@endif--}}
-                        </div>
-                        {{--@if (config('access.captcha.registration'))--}}
-                            {{--<div class="field">--}}
-                                {{--<div class="">--}}
-                                    {{--{!! Form::captcha() !!}--}}
-                                    {{--{{ Form::hidden('captcha_status', 'true') }}--}}
-                                {{--</div>--}}
+                    {{--@if (config('access.captcha.registration'))--}}
+                        {{--<div class="field">--}}
+                            {{--<div class="">--}}
+                                {{--{!! Form::captcha() !!}--}}
+                                {{--{{ Form::hidden('captcha_status', 'true') }}--}}
                             {{--</div>--}}
-                        {{--@endif--}}
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <input type="checkbox" name="remember" tabindex="0" class="hidden">
-                                <label>同意<a href="{{url('/terms')}}" target="_blank">“今天买点啥用户使用协议”</a></label>
-                            </div>
+                        {{--</div>--}}
+                    {{--@endif--}}
+                    <div class="row">
+                        <div class="col s8">
+                            <input type="checkbox" name="remember" tabindex="0" class="filled-in" checked="checked">
+                            <label>同意<a href="{{url('/terms')}}" target="_blank">“今天买点啥用户使用协议”</a></label>
                         </div>
-
-                        {{ Form::submit(trans('labels.frontend.auth.register_button'), ['class' => 'ui fluid large red submit button']) }}
+                        <div class="col s4">
+                            <button class="btn btn-small red waves-effect waves-light" type="submit" name="action">
+                                {{trans('labels.frontend.auth.register_button')}}
+                            </button>
+                        </div>
                     </div>
                 {{ Form::close() }}
             </div>

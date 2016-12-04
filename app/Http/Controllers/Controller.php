@@ -16,7 +16,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     // 分页默认每页10项
-    protected $perPage = 10;
+    protected $perPage = 3;
 
     protected function jtmdsSuccess($data)
     {

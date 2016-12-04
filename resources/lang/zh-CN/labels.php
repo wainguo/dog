@@ -83,6 +83,21 @@ return [
                 'createtime' => '创建时间'
             ]
         ],
+        'article' => [
+            'management' => '文章管理',
+            'create' => '创建文章',
+            'edit' => '编辑',
+            'table' => [
+                'title' => '标题',
+                'subtitle' => '子标题',
+                'url' => '链接地址',
+                'content' => '文章内容',
+                'cover' => '图片',
+                'status' => '状态',
+                'user_name' => '作者',
+                'createtime' => '创建时间'
+            ]
+        ]
     ],
 
     'frontend' => [
