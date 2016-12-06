@@ -25,7 +25,8 @@ class EloquentArticleRepository implements ArticleRepositoryContract
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getForDataTable() {
-        return Article::all();
+//        return Article::all();
+        return Article::orderBy('created_at', 'desc')->get();
     }
 
     /**
