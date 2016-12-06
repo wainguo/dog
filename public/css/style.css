@@ -193,7 +193,7 @@ h5.header {
 }
 
 .article-detail img, .article-detail p>a>img {
-    width:100%;
+    width:100% !important;
     height: auto;
 }
 
