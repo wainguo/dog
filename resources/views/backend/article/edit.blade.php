@@ -11,6 +11,7 @@
 
 @section('content')
     {{ Form::open(['route' => ['admin.article.update',$article], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PATCH', 'id' => 'create-article']) }}
+    <input type="hidden" id="article_id" name="article_id" value="{{ $article->id }}">
     <div id="jtmdsArticle" class="box box-success">
         <div class="box-header with-border">
             <h3 class="box-title">{{ trans('labels.backend.article.create') }}</h3>
@@ -27,8 +28,6 @@
                     {{ Form::text('subtitle', $article->subtitle, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.article.subtitle')]) }}
                 </div>
             </div>
-
-
 
             <div class="form-group">
                 {{ Form::label('url', trans('validation.attributes.backend.article.url'), ['class' => 'col-lg-1 control-label']) }}
@@ -88,43 +87,46 @@
             {{--</div>--}}
             {{--</div>--}}
 
-            {{--<div class="form-group">--}}
-            {{--{{ Form::label('tag', trans('validation.attributes.backend.article.tag'), ['class' => 'col-lg-1 control-label']) }}--}}
-            {{--<div id="tag" class="col-lg-10">--}}
-            {{--<div class="ui yellow segment">--}}
-            {{--<div class="field">--}}
-            {{--<label>标签</label>--}}
-            {{--<div class="ui mini action input">--}}
-            {{--<input type="text" placeholder="输入标签" v-model="tag_names">--}}
-            {{--<button type="button" class="ui orange right button" v-on:click="addTags">--}}
-            {{--添加--}}
-            {{--</button>--}}
-            {{--</div>--}}
-            {{--<small>多个标签请用英文逗号（,）分开</small>--}}
-            {{--</div>--}}
+            <div class="form-group">
+                {{ Form::label('tag', trans('validation.attributes.backend.article.tag'), ['class' => 'col-lg-1 control-label']) }}
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="input-group">
+                                <input type="hidden" id="csrfToken" v-model="csrfToken" value="{{csrf_token()}}">
+                                <input type="text" class="form-control" placeholder="输入标签" v-model="tag_names">
+                                <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" v-on:click="addTags">添加</button>
+                                    </span>
+                            </div>
+                            <small>多个标签请用英文逗号（,）分开</small>
+                        </div>
 
-            {{--<div class="ui labels">--}}
-            {{--<div class="ui label" v-for="tag in article_tags">--}}
-            {{--<input type="hidden" name="tag_ids[]" v-bind:value="tag.id">--}}
-            {{--<span v-text="tag.tag_name"></span>--}}
-            {{--<i class="delete icon" v-on:click="deleteArticleTag(tag)"></i>--}}
-            {{--</div>--}}
-            {{--</div>--}}
+                        <div class="col-lg-10" style="margin-top: 10px">
+                            <span class="label label-warning" style="margin-right: 5px;"
+                                  v-for="tag in article_tags">
+                                <input type="hidden" name="tag_ids[]" v-bind:value="tag.id">
+                                <span v-text="tag.tag_name"></span>
+                                <i class="glyphicon glyphicon-remove" v-on:click="deleteArticleTag(tag)"></i>
+                            </span>
+                        </div>
 
-            {{--<div class="ui accordion field">--}}
-            {{--<a class="title">从常用标签中选择</a>--}}
-            {{--<div class="content field">--}}
-            {{--<div class="ui horizontal list">--}}
-            {{--@foreach($tags as $tag)--}}
-            {{--<a class="item" v-on:click="selectTag({{$tag}})">{{$tag->tag_name}}--}}
-            {{--</a>--}}
-            {{--@endforeach--}}
-            {{--</div>--}}
-            {{--</div>--}}
-            {{--</div>--}}
-            {{--</div>--}}
-            {{--</div>--}}
-            {{--</div>--}}
+                        <div class="col-lg-10">
+                            <a style="color: #888" data-toggle="collapse"
+                               role="button"
+                               data-target="#collapseTags"
+                               aria-expanded="false"
+                               aria-controls="collapseTags">从常用标签中选择</a>
+                            <div class="collapse" id="collapseTags">
+                                @foreach($tags as $tag)
+                                    <a href="#;" v-on:click="selectTag({{$tag}})">{{$tag->tag_name}}</a>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div><!--box-->
 

@@ -7,7 +7,7 @@ var vm = new Vue({
 
     data: {
         csrfToken: '',
-        article_id: '',
+        articleId: '',
         category_name: '',
         category_parent: 0,
         article_categories: [],     //文章关联的分类目录
@@ -20,6 +20,8 @@ var vm = new Vue({
     created: function() {
         var self = this;
 
+        this.csrfToken = $('#csrfToken').val();
+        this.articleId = $('#article_id').val();
         //获取所有的分类目录
         this.getCategories();
 
@@ -74,27 +76,27 @@ var vm = new Vue({
         },
 
         getArticleProperties: function () {
-            if(!this.article_id) {
+            if(!this.articleId) {
                 return;
             }
             var self = this;
-            this.$http.get('/api/get/article/properties?article_id='+self.article_id).then(
+            this.$http.get('/api/get/article-properties?article_id='+self.articleId).then(
                 function(response) {
                     var jtmdsResponse = response.data;
                     if(jtmdsResponse.errorCode == 0) {
                         var properties = jtmdsResponse.content;
                         console.log(properties);
                         if(Array.isArray(properties.tags)){
-                            this.$set('article_tags', properties.tags);
+                            self.article_tags = properties.tags;
                         }
                         if(Array.isArray(properties.categories)){
-                            this.$set('article_categories', properties.categories);
+                            self.article_categories = properties.categories;
 
                             var checked_categories = [];
                             properties.categories.forEach(function (category) {
                                 checked_categories.push(category.id);
                             });
-                            this.$set('article_category_ids', checked_categories);
+                            self.article_category_ids = checked_categories;
                         }
                     }
                     else {

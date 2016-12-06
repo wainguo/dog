@@ -178,15 +178,17 @@ class ArticleController extends Controller
         if($article->save()) {
             $categories = $request->input('categories');
             if(!empty($categories)){
-                foreach($categories as $category){
-                    $article->categories()->attach($category);
-                }
+                $article->categories()->sync($categories);
+//                foreach($categories as $category){
+//                    $article->categories()->attach($category);
+//                }
             }
             $tagIds = $request->input('tag_ids');
             if(!empty($tagIds)){
-                foreach($tagIds as $tagId){
-                    $article->tags()->attach($tagId);
-                }
+                $article->tags()->sync($tagIds);
+//                foreach($tagIds as $tagId){
+//                    $article->tags()->attach($tagId);
+//                }
             }
             return view('frontend.article.success', [
                 'article_id' => $article->id

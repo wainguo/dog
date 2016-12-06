@@ -56,8 +56,14 @@ class EloquentArticleRepository implements ArticleRepositoryContract
         if(!$article->cover && count($result['image_urls'])>0){
             $article->cover = $result['image_urls'][0];
         }
-		DB::transaction(function() use ($article) {
+        $tagIds = $input('tag_ids');
+		DB::transaction(function() use ($article, $tagIds) {
 			if ($article->save()) {
+                if(!empty($tagIds)){
+                    foreach($tagIds as $tagId){
+                        $article->tags()->attach($tagId);
+                    }
+                }
 				return true;
 			}
 
@@ -89,8 +95,15 @@ class EloquentArticleRepository implements ArticleRepositoryContract
         if(!$article->cover && count($result['image_urls'])>0){
             $article->cover = $result['image_urls'][0];
         }
-		DB::transaction(function() use ($article) {
+        $tagIds = $input['tag_ids'];
+		DB::transaction(function() use ($article, $tagIds) {
 			if ($article->save()) {
+                if(!empty($tagIds)){
+                    $article->tags()->sync($tagIds);
+//                    foreach($tagIds as $tagId){
+//                        $article->tags()->attach($tagId);
+//                    }
+                }
 				return true;
 			}
 

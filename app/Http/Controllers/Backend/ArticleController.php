@@ -83,8 +83,10 @@ class ArticleController extends Controller
     public function edit(Article $article, Request $request)
     {
         $channels = Channel::all();
+        $tags = Tag::all();
         return view('backend.article.edit', [
             'channels' => $channels,
+            'tags' => $tags,
         ])
         ->withArticle($article);
     }
