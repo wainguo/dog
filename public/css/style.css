@@ -192,7 +192,7 @@ h5.header {
     height: 2.857em;
 }
 
-.article-detail img {
+.article-detail img, .article-detail p>a>img {
     width:100%;
     height: auto;
 }
