@@ -23,7 +23,7 @@ class CreateArticleTable extends Migration
             $table->longText('content');
             $table->string('excerpt', 255);
             $table->string('cover', 255);
-            $table->string('url', 255)->nullable();
+            $table->string('url', 2048)->nullable();
             $table->string('type', 16);
             $table->string('block', 16)->nullable();
             $table->string('status', 20)->default('publish');

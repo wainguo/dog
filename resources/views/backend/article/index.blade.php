@@ -53,7 +53,11 @@
                 columns: [
                     {data: 'title', name: 'title', width: '25%'},
                     {data: 'subtitle', name: 'subtitle', width: '15%'},
-                    {data: 'url', name: 'url', width: '20%'},
+                    {data: 'url', name: 'url', width: '25%',
+                        "render": function ( data, type, full, meta ) {
+                            return '<div style="width:200px;overflow: hidden" title="'+data+'">'+data+'</div>';
+                        }
+                    },
                     {data: 'cover', name: 'cover'},
                     {data: 'status', name: 'status'},
                     {data: 'user_name', name: 'user_name'},

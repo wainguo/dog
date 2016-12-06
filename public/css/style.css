@@ -197,6 +197,10 @@ h5.header {
     height: auto;
 }
 
+.hide-overflow {
+    overflow: hidden;
+}
+
 /*===================*/
 /* ==== */
 /*.sps {*/
