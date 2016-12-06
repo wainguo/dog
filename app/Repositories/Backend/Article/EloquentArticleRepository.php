@@ -56,6 +56,7 @@ class EloquentArticleRepository implements ArticleRepositoryContract
         if(!$article->cover && count($result['image_urls'])>0){
             $article->cover = $result['image_urls'][0];
         }
+        $tagIds = [];
         if(isset($input['tag_ids'])) $tagIds = $input['tag_ids'];
 		DB::transaction(function() use ($article, $tagIds) {
 			if ($article->save()) {
@@ -96,6 +97,7 @@ class EloquentArticleRepository implements ArticleRepositoryContract
         if(!$article->cover && count($result['image_urls'])>0){
             $article->cover = $result['image_urls'][0];
         }
+        $tagIds = [];
         if(isset($input['tag_ids'])) $tagIds = $input['tag_ids'];
 		DB::transaction(function() use ($article, $tagIds) {
 			if ($article->save()) {
