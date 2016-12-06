@@ -29,9 +29,9 @@
                     {{ link_to_route('frontend.auth.register', trans('navs.frontend.register'), [], ['class' => 'nav-link']) }}
                 </li>
             @else
-                <li>
-                    <a href="{{ url('/article/baoliao') }}">爆料投稿</a>
-                </li>
+                {{--<li>--}}
+                    {{--<a href="{{ url('/article/baoliao') }}">爆料投稿</a>--}}
+                {{--</li>--}}
                 <li>
                     <a class="dropdown-button" href="#!" data-activates="dropdown1">
                         {{ access()->user()->name }}
@@ -39,11 +39,11 @@
                     </a>
                 </li>
                 <ul id="dropdown1" class="dropdown-content">
-                    <li>{{ link_to_route('frontend.user.dashboard', trans('navs.frontend.dashboard'), [], ['class' => 'dropdown-item']) }}</li>
-                    @permission('view-backend')
-                    <li>{{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration'), [], ['class' => 'dropdown-item']) }}</li>
-                    @endauth
-                    <li>{{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => 'dropdown-item']) }}</li>
+                    {{--<li>{{ link_to_route('frontend.user.dashboard', trans('navs.frontend.dashboard'), [], ['class' => 'dropdown-item']) }}</li>--}}
+                    {{--@permission('view-backend')--}}
+                    {{--<li>{{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration'), [], ['class' => 'dropdown-item']) }}</li>--}}
+                    {{--@endauth--}}
+                    {{--<li>{{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => 'dropdown-item']) }}</li>--}}
                     <li>{{ link_to_route('frontend.auth.logout', trans('navs.general.logout'), [], ['class' => 'dropdown-item']) }}</li>
                 </ul>
             @endif
